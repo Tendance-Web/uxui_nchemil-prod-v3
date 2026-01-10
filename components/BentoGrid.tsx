@@ -13,7 +13,7 @@ export const BentoGrid: React.FC<BentoGridProps> = ({ onOpenProject }) => {
       <div className="mb-16">
         <span className="text-primary font-mono text-sm mr-2">//</span>
         <span className="tech-label text-primary">Réalisations</span>
-        <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 uppercase tracking-tight">Projets Récents</h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 uppercase tracking-tight">Projets Sélectionnés</h2>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[450px]">
@@ -24,9 +24,9 @@ export const BentoGrid: React.FC<BentoGridProps> = ({ onOpenProject }) => {
           const hasDetails = !!project.fullDetails;
           const canOpen = hasDetails && !isUpcoming;
           const isPortailRH = project.id === 'portail-rh';
-          
+
           return (
-            <div 
+            <div
               key={project.id}
               onClick={() => canOpen && onOpenProject(project.id)}
               className={`
@@ -46,16 +46,16 @@ export const BentoGrid: React.FC<BentoGridProps> = ({ onOpenProject }) => {
               {/* Upcoming Hover Message */}
               {isUpcoming && (
                 <div className="absolute inset-0 z-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                    <span className="bg-zinc-950/90 text-white px-4 py-2 rounded border border-zinc-800 font-mono text-sm font-bold uppercase tracking-tight shadow-xl backdrop-blur-sm">
-                        Bientôt disponible
-                    </span>
+                  <span className="bg-zinc-950/90 text-white px-4 py-2 rounded border border-zinc-800 font-mono text-sm font-bold uppercase tracking-tight shadow-xl backdrop-blur-sm">
+                    Bientôt disponible
+                  </span>
                 </div>
               )}
 
               {/* Image Background */}
               <div className="absolute inset-0 bg-zinc-900">
-                <img 
-                  src={project.image} 
+                <img
+                  src={project.image}
                   alt={project.title}
                   className={`h-full object-cover transition-all duration-700 
                     ${isPortailRH ? 'w-[105%] max-w-none object-left-top opacity-80' : 'w-full opacity-60'}
@@ -78,14 +78,14 @@ export const BentoGrid: React.FC<BentoGridProps> = ({ onOpenProject }) => {
                       </div>
                     )}
                   </div>
-                  
+
                   <h3 className="text-3xl font-bold text-white mb-2 uppercase tracking-tight drop-shadow-lg">
                     {project.title}
                   </h3>
                   <p className="text-base text-text-secondary max-w-md mb-6 leading-relaxed drop-shadow-md">
                     {project.description}
                   </p>
-                  
+
                   <div className="flex flex-wrap gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {project.tags.slice(0, 3).map(tag => (
                       <span key={tag} className="text-xs font-mono uppercase tracking-tight px-2 py-1 bg-zinc-950/60 backdrop-blur-md border border-zinc-700 text-zinc-300 rounded shadow-sm">

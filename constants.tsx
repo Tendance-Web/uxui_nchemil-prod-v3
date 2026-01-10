@@ -507,7 +507,7 @@ export const PROJECTS_DATA: Project[] = [
     category: "Construction Produit",
     description: "Création de flux automatisés et d'interfaces rapides via Webflow et outils d'automatisation.",
     image: "https://github.com/Tendance-Web/visuelsPortfolio/blob/main/images/NoCode/coverIANoCode.png?raw=true",
-    tags: ["Webflow", "Zapier", "Airtable", "Automatisation IA"],
+    tags: ["Automatisation IA, Outils NoCode"],
     fullDetails: {
       context: "Exploration des capacités du NoCode pour accélérer le déploiement de prototypes (MVP) et automatiser des processus métiers répétitifs.",
       mission: "Démontrer l'efficacité des solutions NoCode couplées à l'IA.",
