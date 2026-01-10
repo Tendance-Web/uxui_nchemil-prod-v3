@@ -43,14 +43,7 @@ export const BentoGrid: React.FC<BentoGridProps> = ({ onOpenProject }) => {
                 </div>
               )}
 
-              {/* Upcoming Hover Message */}
-              {isUpcoming && (
-                <div className="absolute inset-0 z-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                  <span className="bg-zinc-950/90 text-white px-4 py-2 rounded border border-zinc-800 font-mono text-sm font-bold uppercase tracking-tight shadow-xl backdrop-blur-sm">
-                    Bientôt disponible
-                  </span>
-                </div>
-              )}
+
 
               {/* Image Background */}
               <div className="absolute inset-0 bg-zinc-900">

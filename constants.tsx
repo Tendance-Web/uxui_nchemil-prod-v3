@@ -126,7 +126,7 @@ export const PROJECTS_DATA: Project[] = [
     category: "UX/UI & Design System",
     description: "Unification de l'écosystème de recharge électrique. Lancement d'un Design System et refonte de l'expérience mobile et ordinateur.",
     image: "https://github.com/Tendance-Web/visuelsPortfolio/blob/b0aed1079e7bd70902aa57ec09be155e1cb8a25a/images/TE/showEvCharge.png?raw=true",
-    tags: ["Design System", "App Mobile", "Figma", "SaaS"],
+    tags: ["Design System", "App Mobile", "Figma", "Systèmes complexes", "UX/UI"],
     fullDetails: {
       context: "Dans le cadre de la transition vers la mobilité électrique, TotalEnergies souhaitait repenser l’expérience de recharge des conducteurs, en harmonisant ses différents canaux (marque blanche, applications mobiles, web et bornes). Le projet visait à unifier l’expérience utilisateur autour d’un “design system” commun et à simplifier les parcours.",
       mission: "Concevoir une expérience fluide, cohérente et inclusive sur l’ensemble de l’écosystème digital TotalEnergies. Simplifier l'accès à la recharge, optimiser la recherche de bornes, repenser les parcours d'achat et initier un Design System unifié.",
@@ -167,7 +167,8 @@ export const PROJECTS_DATA: Project[] = [
         {
           type: 'image',
           url: "https://github.com/Tendance-Web/visuelsPortfolio/blob/main/images/TE/Composants.png?raw=true",
-          caption: "Extrait visuel des composants créés et utilisés pour les différents écrans de l'application"
+          caption: "Extrait visuel des composants créés et utilisés pour les différents écrans de l'application",
+          preserveOriginal: true
         },
         {
           type: 'text',
