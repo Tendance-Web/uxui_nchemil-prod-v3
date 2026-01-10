@@ -304,7 +304,7 @@ export const PROJECTS_DATA: Project[] = [
     category: "Recherche UX & Design Produit",
     description: "Solution globale pour restaurateurs. Module de prise de réservation intelligent et gestion dynamique du plan de salle.",
     image: "https://github.com/Tendance-Web/visuelsPortfolio/blob/main/images/LEA/coverLea.png?raw=true",
-    tags: ["Recherche Utilisateur", "Carte d'expérience", "Restaurant Tech", "Figma"],
+    tags: ["Recherche Utilisateur", "Carte d'expérience", "Figma"],
     fullDetails: {
       context: "Le projet Léa repose sur la conception d’une solution globale pensée et développée pour répondre aux problématiques critiques des restaurateurs, notamment l'inefficacité des systèmes de réservation manuels (papier/crayon) et l'impact financier des 'désistements sans prévenir' (no-shows).",
       mission: "Apporter sérénité et confort aux restaurateurs via un outil aussi simple qu'un stylo mais doté de l'intelligence du numérique pour optimiser le taux d'occupation en temps réel.",
