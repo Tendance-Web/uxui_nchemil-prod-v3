@@ -207,10 +207,19 @@ export const ProjectDetail: React.FC = () => {
                     </FadeIn>
                   );
                 } else if (block.type === 'image') {
+                  const containerClasses = block.preserveOriginal
+                    ? "border border-zinc-800 rounded overflow-hidden flex justify-center"
+                    : "border border-zinc-800 bg-surface rounded overflow-hidden";
+                  const imgClasses = block.preserveOriginal
+                    ? "h-auto object-contain max-w-full"
+                    : "w-full h-auto object-cover";
+                  const captionClasses = block.preserveOriginal
+                    ? "flex items-center justify-center gap-2 text-sm font-mono uppercase text-zinc-400 mt-2"
+                    : "flex items-center gap-2 text-sm font-mono uppercase text-zinc-400 mt-2";
                   return (
                     <FadeIn key={index} delay={100}>
                       <figure className="space-y-4">
-                        <div className="border border-zinc-800 bg-surface rounded overflow-hidden">
+                        <div className={containerClasses}>
                           <picture>
                             {block.mobileUrl && (
                               <source media="(max-width: 768px)" srcSet={block.mobileUrl} />
@@ -218,12 +227,12 @@ export const ProjectDetail: React.FC = () => {
                             <img
                               src={block.url}
                               alt={block.caption || "Illustration de la solution"}
-                              className="w-full h-auto object-cover"
+                              className={imgClasses}
                             />
                           </picture>
                         </div>
                         {block.caption && (
-                          <figcaption className="flex items-center gap-2 text-sm font-mono uppercase text-zinc-400 mt-2">
+                          <figcaption className={captionClasses}>
                             <span className="w-4 h-px bg-zinc-600"></span>
                             {block.caption}
                           </figcaption>
@@ -238,7 +247,7 @@ export const ProjectDetail: React.FC = () => {
               {/* CTAs Section: Vidéo Demo & Présentation Doc */}
               {(project.fullDetails.videoUrl || project.fullDetails.presentationUrl) && (
                 <FadeIn delay={100}>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+                  <div className={`grid grid-cols-1 ${project.fullDetails.videoUrl && project.fullDetails.presentationUrl ? 'md:grid-cols-2' : ''} gap-6 mt-12`}>
                     {project.fullDetails.videoUrl && (
                       <button
                         onClick={() => setIsVideoModalOpen(true)}
@@ -321,6 +330,7 @@ export const ProjectDetail: React.FC = () => {
             </div>
           </div>
         </FadeIn>
+
 
         {/* Footer Navigation */}
         <div className="flex justify-center pt-16 border-t border-zinc-900">

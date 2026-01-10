@@ -2,7 +2,7 @@ import React from 'react';
 
 export type SolutionBlock =
   | { type: 'text'; content: string }
-  | { type: 'image'; url: string; mobileUrl?: string; caption?: string };
+  | { type: 'image'; url: string; mobileUrl?: string; caption?: string; preserveOriginal?: boolean };
 
 export interface Project {
   id: string;

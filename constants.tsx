@@ -140,7 +140,8 @@ export const PROJECTS_DATA: Project[] = [
         {
           type: 'image',
           url: "https://github.com/Tendance-Web/visuelsPortfolio/blob/main/images/TE/TE-AppFlow.png?raw=true",
-          caption: "Revue des différents flux utilisateurs de l'application."
+          caption: "Revue des différents flux utilisateurs de l'application.",
+          preserveOriginal: true
         },
         {
           type: 'text',
@@ -149,12 +150,14 @@ export const PROJECTS_DATA: Project[] = [
         {
           type: 'image',
           url: "https://github.com/Tendance-Web/visuelsPortfolio/blob/main/images/TE/redesignCoherence.png?raw=true",
-          caption: "Exemple, sur l'application Belib, de la rubrique abonnement avec à gauche l'ancien design."
+          caption: "Exemple, sur l'application Belib, de la rubrique abonnement avec à gauche l'ancien design.",
+          preserveOriginal: true
         },
         {
           type: 'image',
           url: "https://github.com/Tendance-Web/visuelsPortfolio/blob/main/images/TE/marqueBlanche.png?raw=true",
-          caption: "Exemple d'écrans déclinés en marque blanche. Conservation de la même architecture d'information."
+          caption: "Exemple d'écrans déclinés en marque blanche. Conservation de la même architecture d'information.",
+          preserveOriginal: true
         },
         {
           type: 'image',
@@ -375,6 +378,7 @@ export const PROJECTS_DATA: Project[] = [
     }
   },
   // Green Fusion
+  // https://docs.google.com/presentation/d/1tJDh8SpPskwt0rS_Nwq38_WKp8QWiNur0gNFFUuJFYc/edit?usp=sharing
   {
     id: "green-fusion",
     title: "Green Fusion",
@@ -390,6 +394,7 @@ export const PROJECTS_DATA: Project[] = [
       mission: "Concevoir une application capable d'encourager la coopération ou la compétition positive autour d'objectifs écologiques. Il fallait créer une communauté de joueurs engagés partageant conseils et réussites, tout en garantissant un équilibre entre défi et plaisir (Flow).",
       challenges: "Le principal risque identifié lors des tests était la perte de motivation rapide sans retour concret. Les points semblaient trop abstraits et les défis trop génériques. Il fallait donc 'donner corps' à l'impact écologique de chaque utilisateur via une ludification intelligente.",
       role: "UX Researcher & Product Designer. J'ai piloté l'ensemble de la chaîne de conception : de l'étude comparative aux tests utilisateurs finaux, en passant par l'idéation (Persona, Carte d'empathie) et le prototypage d'interface haute-fidélité.",
+      presentationUrl: "https://docs.google.com/presentation/d/1tJDh8SpPskwt0rS_Nwq38_WKp8QWiNur0gNFFUuJFYc/edit?usp=sharing",
       solutionBlocks: [
         {
           type: 'text',
@@ -399,7 +404,8 @@ export const PROJECTS_DATA: Project[] = [
           type: 'image',
           url: "https://raw.githubusercontent.com/Tendance-Web/visuelsPortfolio/main/images/greenFusion/Bench-desktop-view.png",
           mobileUrl: "https://raw.githubusercontent.com/Tendance-Web/visuelsPortfolio/main/images/greenFusion/Bench-mobile-view.png",
-          caption: "Analyse comparative des leviers d'engagement sur le marché."
+          caption: "Analyse comparative des leviers d'engagement sur le marché.",
+          preserveOriginal: true
         },
         {
           type: 'text',
@@ -407,43 +413,81 @@ export const PROJECTS_DATA: Project[] = [
         },
         {
           type: 'image',
-          url:
-            ""
-          ,
-          caption: "Synthèse des données qualitatives et quantitatives."
+          url: "https://raw.githubusercontent.com/Tendance-Web/visuelsPortfolio/main/images/greenFusion/stat-desktop-view.png",
+          mobileUrl: "https://raw.githubusercontent.com/Tendance-Web/visuelsPortfolio/main/images/greenFusion/stat-mobile-view.png",
+          caption: "Statistiques obtenues suite à nos différents interviews",
+          preserveOriginal: true
         },
+        // === PHASE 3 : IDÉATION - PERSONA ===
         {
           type: 'text',
-          content: "L'idéation a permis de modéliser Margaux (32 ans, active) et de cartographier son expérience (XP Map). La carte d'empathie a mis en évidence un sentiment de solitude face à l'ampleur du problème. La stratégie UX s'est donc focalisée sur le sentiment d'impact collectif pour lever ces freins émotionnels."
+          content: "Phase d'Idéation : Persona\nL'idéation a permis de modéliser Margaux (32 ans, active) comme persona principal. Elle représente notre cible : une personne sensible aux enjeux écologiques mais qui manque de leviers d'action concrets au quotidien."
         },
         {
           type: 'image',
-          url:
-            "/"
-          ,
-          caption: "Définition de la cible et analyse des points de friction émotionnelle."
+          url: "https://raw.githubusercontent.com/Tendance-Web/visuelsPortfolio/main/images/greenFusion/personae.png",
+          caption: "Persona principal : Margaux, 32 ans, sensible à l'écologie.",
+          preserveOriginal: true
         },
+
+        // === PHASE 3 : IDÉATION - CARTE D'EMPATHIE ===
         {
           type: 'text',
-          content: "En phase de génération, nous avons structuré l'information par un tri de cartes (OOUX) et stabilisé les parcours via un diagramme de flux. La méthode 'Six-to-One' a été utilisée pour explorer des pistes créatives variées sur les concepts de défis (défis par scan, géolocalisés, etc.) avant de converger vers le produit minimal."
+          content: "Phase d'Idéation : Carte d'empathie\nAvec l'Empathy Map, j'ai pu vraiment comprendre ce que ressentait une personne sensible aux enjeux écologiques, ses motivations, ses frustrations et comment elle interagissait avec des contenus ou outils liés à l'écologie.\n\nJ'ai pu repérer des idées concrètes qui soient en phase avec ses valeurs. Notamment la partie 'Gain' qui nous a permis de dégager les points suivants :\n• Être accompagné dans mes gestes\n• Voir l'impact de mes efforts\n• Accompagnement des gestes écologiques"
         },
         {
           type: 'image',
-          url:
-            "https://github.com/Tendance-Web/visuelsPortfolio/blob/main/images/greenFusion/?raw=true"
-          ,
-          caption: "Architecture fonctionnelle et exploration des pistes créatives."
+          url: "https://raw.githubusercontent.com/Tendance-Web/visuelsPortfolio/main/images/greenFusion/empathyMap.png",
+          caption: "Carte d'empathie : Comprendre les motivations et frustrations de l'utilisateur."
         },
+
+        // === PHASE 3 : IDÉATION - XP MAP ===
         {
           type: 'text',
-          content: "Le prototype d'interface final propose une immersion directe dans les défis. L'écran principal regroupe les défis par catégories (Nature, Animaux, Recyclage). Chaque réussite est célébrée par un retour visuel fort, permettant de convertir les points en dons réels ou en actions locales pour maintenir la motivation sur le long terme."
+          content: "Phase d'Idéation : XP Map (Experience Map)\nLa conception d'une XP Map m'a permis de comprendre l'expérience utilisateur dans sa globalité, en visualisant ses actions, émotions et points de contact.\n\nElle m'a aidé à identifier les frictions et opportunités d'amélioration tout au long du parcours.\n\nEnfin, elle a alimenté ma stratégie UX et favorisé l'alignement des équipes autour d'une vision commune."
         },
         {
           type: 'image',
-          url:
-            ""
-          ,
-          caption: "Interface utilisateur finale et module de ludification."
+          url: "https://raw.githubusercontent.com/Tendance-Web/visuelsPortfolio/main/images/greenFusion/xpMap.png",
+          caption: "Experience Map : Visualisation du parcours utilisateur et des points de friction."
+        },
+
+        // === PHASE 4 : GÉNÉRATION - SIX-TO-ONE ===
+        {
+          type: 'text',
+          content: "Phase de Génération : Six-to-One\nLe 'Six-to-One' nous a aidé à générer, comparer et combiner plusieurs pistes créatives. Sur la thématique d'un jeu à visée écologique et grâce aux insights des phases de conception UX précédentes (Interview, Empathy Map, Personas, XP Map), nous avons exploré des concepts variés de défis (défis par scan, géolocalisés, collectifs, etc.) avant de converger vers le produit minimal."
+        },
+        {
+          type: 'image',
+          url: "https://raw.githubusercontent.com/Tendance-Web/visuelsPortfolio/main/images/greenFusion/sixToOne.png",
+          caption: "Méthode Six-to-One : Exploration et convergence des pistes créatives.",
+          preserveOriginal: true
+        },
+
+        // === PHASE 4 : GÉNÉRATION - TRI DE CARTES ===
+        {
+          type: 'text',
+          content: "Phase de Génération : Tri de cartes et Architecture\nNous avons structuré l'information par un tri de cartes (OOUX) et stabilisé les parcours via un diagramme de flux pour définir l'architecture fonctionnelle de l'application."
+        },
+        {
+          type: 'image',
+          url: "https://raw.githubusercontent.com/Tendance-Web/visuelsPortfolio/main/images/greenFusion/triCartes.png",
+          caption: "Architecture fonctionnelle issue du tri de cartes.",
+          preserveOriginal: true
+        },
+
+        // === PHASE 5 : PROTOTYPAGE ===
+        {
+          type: 'text',
+          content: "Phase de Prototypage : Interface haute-fidélité\nLe prototype d'interface final propose une immersion directe dans les défis. L'écran principal regroupe les défis par catégories (Nature, Animaux, Recyclage). Chaque réussite est célébrée par un retour visuel fort, permettant de convertir les points en dons réels ou en actions locales pour maintenir la motivation sur le long terme."
+        },
+        {
+
+          type: 'image',
+          url: "https://raw.githubusercontent.com/Tendance-Web/visuelsPortfolio/main/images/greenFusion/protoOne-desktop-view.png",
+          mobileUrl: "https://raw.githubusercontent.com/Tendance-Web/visuelsPortfolio/main/images/greenFusion/protoOne-mobile-view.png",
+          caption: "Extrait d'interfaces de l'application Green Fusion.",
+          preserveOriginal: true
         }
       ],
       kpi: [
@@ -458,6 +502,7 @@ export const PROJECTS_DATA: Project[] = [
   {
     id: "nocode",
     title: "NoCode & IA",
+    isUpcoming: true,
     client: "Projets Personnels",
     category: "Construction Produit",
     description: "Création de flux automatisés et d'interfaces rapides via Webflow et outils d'automatisation.",

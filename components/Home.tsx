@@ -16,14 +16,16 @@ export const Home: React.FC = () => {
     if (location.state && location.state.scrollTo) {
       const element = document.getElementById(location.state.scrollTo);
       if (element) {
-        // Petit délai pour s'assurer que le DOM est prêt
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
+        // Positionnement instantané (sans animation) pour éviter l'effet de défilement visible
+        const offset = 100; // Offset pour la navbar fixe
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: elementPosition - offset, behavior: 'instant' });
       }
+      // Nettoyer le state pour éviter de re-scroller au refresh
+      window.history.replaceState({}, document.title);
     } else {
-        // Scroll en haut par défaut si on arrive normalement
-        window.scrollTo(0, 0);
+      // Scroll en haut par défaut si on arrive normalement
+      window.scrollTo(0, 0);
     }
   }, [location]);
 
@@ -32,19 +34,19 @@ export const Home: React.FC = () => {
       <FadeIn>
         <Hero />
       </FadeIn>
-      
+
       <FadeIn delay={100}>
         <BentoGrid onOpenProject={(id) => navigate(`/project/${id}`)} />
       </FadeIn>
-      
+
       <FadeIn delay={100}>
         <TechStack />
       </FadeIn>
-      
+
       <FadeIn delay={100}>
         <Skills />
       </FadeIn>
-      
+
       <FadeIn delay={100}>
         <Experience />
       </FadeIn>
