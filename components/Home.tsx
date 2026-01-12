@@ -6,6 +6,7 @@ import { TechStack } from './TechStack';
 import { Skills } from './Skills';
 import { Experience } from './Experience';
 import { FadeIn } from './FadeIn';
+import { ScrollToTop } from './ScrollToTop';
 
 export const Home: React.FC = () => {
   const location = useLocation();
@@ -50,6 +51,8 @@ export const Home: React.FC = () => {
       <FadeIn delay={100}>
         <Experience />
       </FadeIn>
+
+      <ScrollToTop />
     </div>
   );
 };
