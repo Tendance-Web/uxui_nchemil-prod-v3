@@ -39,6 +39,14 @@ export interface Experience {
   description: string[];
 }
 
+export interface Education {
+  id: string;
+  school: string;
+  degree: string;
+  period: string;
+  description: string;
+}
+
 export interface TechItem {
   name: string;
   icon?: React.ReactNode;

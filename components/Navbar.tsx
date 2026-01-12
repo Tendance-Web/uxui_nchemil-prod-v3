@@ -114,6 +114,7 @@ export const Navbar: React.FC = () => {
     switch (item) {
       case 'projects': return 'Projets';
       case 'experience': return 'Expérience';
+      case 'education': return 'Formation';
       case 'stack': return 'Compétences';
       default: return item;
     }
@@ -135,9 +136,8 @@ export const Navbar: React.FC = () => {
             Nassim Chemil
           </button>
 
-          {/* Desktop Menu - Font Mono - Text SM (14px) */}
           <div className="hidden md:flex items-center gap-10">
-            {['projects', 'stack', 'skills', 'experience'].map((item) => (
+            {['projects', 'stack', 'skills', 'experience', 'education'].map((item) => (
               <button
                 key={item}
                 onClick={() => handleNavigation(item)}
@@ -195,7 +195,7 @@ export const Navbar: React.FC = () => {
           </div>
 
           <div className="flex flex-col px-6 space-y-8 mt-12 animate-fade-in">
-            {['projects', 'stack', 'skills', 'experience'].map((item) => (
+            {['projects', 'stack', 'skills', 'experience', 'education'].map((item) => (
               <button
                 key={item}
                 onClick={() => handleNavigation(item)}

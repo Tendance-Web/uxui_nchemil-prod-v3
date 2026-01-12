@@ -1,5 +1,5 @@
 
-import { Project, Experience, SkillCategory } from './types';
+import { Project, Experience, SkillCategory, Education } from './types';
 
 export const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/in/nchemil/",
@@ -515,5 +515,43 @@ export const PROJECTS_DATA: Project[] = [
       challenges: "Intégration complexe de différentes interfaces de programmation (API) sans code, maintenance des flux à grande échelle.",
       role: "Product Builder. Architecture des données et design des automatisations."
     }
+  }
+];
+
+export const EDUCATION_DATA: Education[] = [
+  {
+    id: "wild",
+    school: "Wild Code School",
+    degree: "Développement Web & Mobile",
+    period: "Décembre 2020 - Avril 2021",
+    description: "Introduction aux contraintes du développement web et mobile (design HTML, CSS, JS)."
+  },
+  {
+    id: "iesa",
+    school: "IESA",
+    degree: "UX Strategy & Innovation",
+    period: "Avril 2019",
+    description: "Lean UX, stratégie d’innovation, sciences cognitives et phénomènes de perception, psychologie cognitive, marketing sensoriel et émotionnel."
+  },
+  {
+    id: "campus",
+    school: "Campus Fonderie de l’image",
+    degree: "UX Designer",
+    period: "2018",
+    description: "Méthodes UX, tests utilisateurs, analyse des usages, tri de cartes (card sorting)."
+  },
+  {
+    id: "pyramyd",
+    school: "Pyramyd",
+    degree: "Datavisualisation & Ergonomie",
+    period: "Janvier & Février 2015",
+    description: "Datavisualisation (infographie statique, motion design), conception ergonomique de sites web."
+  },
+  {
+    id: "paris13",
+    school: "Paris 13",
+    degree: "Licence Techniques de Communication",
+    period: "Janvier 2006 - Janvier 2007",
+    description: "Animation et gestion de site."
   }
 ];

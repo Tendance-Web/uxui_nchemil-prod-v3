@@ -5,6 +5,7 @@ import { BentoGrid } from './BentoGrid';
 import { TechStack } from './TechStack';
 import { Skills } from './Skills';
 import { Experience } from './Experience';
+import { Education } from './Education';
 import { FadeIn } from './FadeIn';
 import { ScrollToTop } from './ScrollToTop';
 
@@ -50,6 +51,10 @@ export const Home: React.FC = () => {
 
       <FadeIn delay={100}>
         <Experience />
+      </FadeIn>
+
+      <FadeIn delay={100}>
+        <Education />
       </FadeIn>
 
       <ScrollToTop />

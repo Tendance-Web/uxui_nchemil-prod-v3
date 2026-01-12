@@ -13,7 +13,7 @@ export const BentoGrid: React.FC<BentoGridProps> = ({ onOpenProject }) => {
       <div className="mb-16">
         <span className="text-primary font-mono text-sm mr-2">//</span>
         <span className="tech-label text-primary">Réalisations</span>
-        <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 uppercase tracking-tight">Projets Sélectionnés</h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 tracking-tight">Projets Sélectionnés</h2>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[450px]">
