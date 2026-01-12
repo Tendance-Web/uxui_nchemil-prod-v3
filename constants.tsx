@@ -524,7 +524,7 @@ export const EDUCATION_DATA: Education[] = [
     school: "Wild Code School",
     degree: "Développement Web & Mobile",
     period: "Décembre 2020 - Avril 2021",
-    description: "Introduction aux contraintes du développement web et mobile (design HTML, CSS, JS)."
+    description: "Introduction aux contraintes du développement web et mobile (design HTML, CSS, Vanilla JS, NODE JS, REACT JS, VUE, Webapp, API, JSON, Git, GitHub, Command Line)."
   },
   {
     id: "iesa",
