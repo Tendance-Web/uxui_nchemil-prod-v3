@@ -10,14 +10,14 @@ export const SOCIAL_LINKS = {
 
 export const HARD_SKILLS = [
   "Figma", "Figma Make", "Sketch", "Miro", "Notion", "Photoshop",
-  "Html5/CSS3", "React", "Vanilla JS", "ChatGPT", "Git",
-  "Webflow", "WordPress", "NodeJS", "Supabase"
+  "Html5/CSS3", "React (Bonnes notions)", "Vanilla JS", "ChatGPT", "Git", "CMS",
+  "Webflow", "WordPress", "NodeJS", "Supabase", "Antigravity", "MCP Server", "AI Studio", "Terminal"
 ];
 
 export const SOFT_SKILLS = [
   "Méthodes UX", "Travail en équipe", "Empathie", "Sens créatif",
   "Autonomie", "Esprit d’innovation", "Design centré utilisateur (UCD)",
-  "Méthodes Agiles", "Design Sprint"
+  "Méthodes Agiles", "Design Sprint", "UCD"
 ];
 
 export const EXPERIENCE_DATA: Experience[] = [
