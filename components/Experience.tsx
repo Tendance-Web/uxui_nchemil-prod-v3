@@ -1,10 +1,13 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { EXPERIENCE_DATA, SOCIAL_LINKS } from '../constants';
-import { Download } from 'lucide-react';
-
+import { Download, ChevronDown } from 'lucide-react';
 
 export const Experience: React.FC = () => {
+  const [openId, setOpenId] = useState<string | null>(null);
+
+  const toggleOpen = (id: string) => {
+    setOpenId(openId === id ? null : id);
+  };
 
   return (
     <section id="experience" className="py-24 px-6 max-w-[1440px] mx-auto">
@@ -30,45 +33,56 @@ export const Experience: React.FC = () => {
         </div>
 
         {/* Right Col: Timeline */}
-        <div className="lg:col-span-8 space-y-12 relative">
-          {/* Vertical Line */}
-          <div className="absolute left-0 top-2 bottom-2 w-px bg-border hidden md:block"></div>
+        <div className="lg:col-span-8 space-y-8 relative">
+          {EXPERIENCE_DATA.map((exp) => {
+            const isOpen = openId === exp.id;
 
-          {EXPERIENCE_DATA.map((exp) => (
-            <div
-              key={exp.id}
-              className="relative md:pl-12 group"
-            >
+            return (
+              <div
+                key={exp.id}
+                className="group cursor-pointer bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.04] p-5 md:p-6 rounded-xl transition-all"
+                onClick={() => toggleOpen(exp.id)}
+              >
+                <div className="flex items-start gap-4">
+                  {/* Sonar Dot Animation */}
+                  <div className="mt-[10px] relative hidden md:flex items-center justify-center w-2 h-2 shrink-0">
+                    <div className="absolute w-full h-full rounded-full border border-primary opacity-0 group-hover:animate-ripple"></div>
+                    <div className="absolute w-full h-full rounded-full border border-primary opacity-0 group-hover:animate-ripple" style={{ animationDelay: '0.6s' }}></div>
+                    <div className={`relative w-2 h-2 rounded-full transition-colors border border-background z-10 ${isOpen ? 'bg-primary' : 'bg-zinc-600 group-hover:bg-primary'}`}></div>
+                  </div>
 
-              {/* Sonar Dot Animation */}
-              <div className="absolute left-[-4px] top-2 hidden md:flex items-center justify-center w-2 h-2">
-                {/* Ripple 1 - Ring effect */}
-                <div className="absolute w-full h-full rounded-full border border-primary opacity-0 group-hover:animate-ripple"></div>
-                {/* Ripple 2 (Delayed) */}
-                <div className="absolute w-full h-full rounded-full border border-primary opacity-0 group-hover:animate-ripple" style={{ animationDelay: '0.6s' }}></div>
+                  <div className="flex-1 flex flex-col">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-2">
+                      <h3 className="text-xl font-bold text-white flex items-center gap-2 text-left">
+                        {exp.role}
+                        <ChevronDown
+                          size={20}
+                          className={`text-primary transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                        />
+                      </h3>
+                      <span className="text-xs font-mono text-zinc-400 bg-zinc-900/40 px-3 py-1.5 rounded-md border border-zinc-800 whitespace-nowrap">
+                        {exp.period}
+                      </span>
+                    </div>
 
-                {/* Center Dot */}
-                <div className="relative w-2 h-2 rounded-full bg-zinc-600 group-hover:bg-primary transition-colors border border-background z-10"></div>
+                    <p className="text-primary text-sm font-bold font-mono mb-2">{exp.company}</p>
+
+                    <div className={`grid transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0'}`}>
+                      <div className="overflow-hidden">
+                        <div className="space-y-6">
+                          {exp.description.map((item, idx) => (
+                            <p key={idx} className="text-text-secondary text-sm leading-relaxed max-w-4xl">
+                              {item}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-
-
-              <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-2">
-                <h3 className="text-xl font-bold text-white">{exp.role}</h3>
-
-                <span className="text-xs font-mono text-zinc-500 bg-zinc-900/50 px-2 py-1 rounded border border-zinc-800/50">{exp.period}</span>
-              </div>
-
-              <p className="text-primary text-base font-medium mb-4">{exp.company}</p>
-
-              <ul className="space-y-6">
-                {exp.description.map((item, idx) => (
-                  <li key={idx} className="text-text-secondary text-base pl-4 border-l border-zinc-700 leading-relaxed">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

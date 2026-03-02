@@ -4,8 +4,8 @@ import { SOCIAL_LINKS } from '../constants';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-surface border-t border-border py-12 px-6">
-      <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+    <footer className="bg-surface border-t border-border py-12">
+      <div className="max-w-[1440px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="text-center md:text-left">
           <h4 className="text-white font-bold text-lg mb-2">Nassim CHEMIL</h4>
           <p className="text-zinc-300 text-sm">UX/UI Designer IA No Code</p>
