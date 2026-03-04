@@ -231,7 +231,7 @@ export const Hero: React.FC = () => {
         <div className="flex flex-col sm:flex-row gap-4 pt-6 animate-slide-up-delay justify-center w-full sm:w-auto">
           <button
             onClick={scrollToProjects}
-            className="group relative px-6 py-4 bg-primary text-white text-sm font-mono font-bold uppercase tracking-tight rounded hover:bg-primary-hover transition-all flex items-center justify-center gap-2 w-full sm:w-auto"
+            className="group relative px-6 py-4 bg-primary/10 border border-primary/30 text-primary text-sm font-mono font-bold uppercase tracking-tight rounded hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2 w-full sm:w-auto"
           >
             Voir les projets
             <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
       <div className="max-w-[1440px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="text-center md:text-left">
           <h4 className="text-white font-bold text-lg mb-2">Nassim CHEMIL</h4>
-          <p className="text-zinc-300 text-sm">UX/UI Designer IA No Code</p>
+          <p className="text-zinc-300 text-sm">Concepteur Webapp / Consultant digital / Product builder IA - No Code</p>
         </div>
 
         <div className="flex gap-6 items-center">
