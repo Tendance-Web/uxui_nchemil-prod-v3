@@ -2,19 +2,24 @@
 <html lang="fr" class="dark">
 
 <head>
+  <!-- ── Méta critiques (priorité maximale) ── -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nassim CHEMIL - UX UI Designer, IA No Code</title>
-  <meta name="description" content="Portfolio de Nassim CHEMIL, UX/UI Designer IA No Code." />
+  <title>Nassim CHEMIL - Concepteur &amp; designer digital, IA No Code</title>
+  <meta name="description" content="Portfolio de Nassim CHEMIL, Concepteur &amp; designer digital IA No Code." />
 
+  <!-- ── Pré-connexions CDN (avant tout téléchargement) ── -->
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 
-  <!-- Tailwind CSS -->
+  <!-- ── Préchargement des polices (haute priorité) ── -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-sans/style.css" as="style" />
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-mono/style.css" as="style" />
+
+  <!-- ── Tailwind CSS (nécessaire avant le parsing des classes) ── -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Geist Fonts via CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-sans/style.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-mono/style.css" rel="stylesheet">
-
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -93,6 +98,11 @@
     }
   </script>
 
+  <!-- ── Geist Fonts (après preload, le navigateur les applique immédiatement) ── -->
+  <link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-sans/style.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-mono/style.css" rel="stylesheet">
+
+  <!-- ── Styles critiques inline ── -->
   <style>
     html,
     body {
@@ -184,25 +194,30 @@
       z-index: 1;
       min-height: 100vh;
     }
+
+    /* Typewriter char fade-in / fade-out */
+    @keyframes tw-char-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes tw-char-out {
+      from { opacity: 1; }
+      to   { opacity: 0; }
+    }
+
+    /* Typewriter cursor blink */
+    @keyframes typewriter-blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
   </style>
-
-
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0",
-    "vite": "https://esm.sh/vite@^7.3.1",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
-    "lenis": "https://esm.sh/lenis@^1.3.17"
-  }
-}
-</script>
-
-  <link rel="stylesheet" href="/index.css">
 </head>
 
 <body>

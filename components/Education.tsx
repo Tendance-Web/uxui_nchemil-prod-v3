@@ -33,7 +33,7 @@ export const Education: React.FC = () => {
                             return (
                                 <div
                                     key={edu.id}
-                                    className="group cursor-pointer bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.04] p-5 md:p-6 rounded-xl transition-all"
+                                    className={`group cursor-pointer bg-white/[0.02] border ${isOpen ? 'border-green-500' : 'border-white/[0.05]'} hover:bg-white/[0.04] p-5 md:p-6 rounded-xl transition-all`}
                                     onClick={() => toggleOpen(edu.id)}
                                 >
                                     <div className="flex items-start gap-4">

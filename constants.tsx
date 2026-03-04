@@ -23,7 +23,7 @@ export const SOFT_SKILLS = [
 export const EXPERIENCE_DATA: Experience[] = [
   {
     id: "exp0",
-    role: "UX/UI designer - NoCode/IA",
+    role: "Concepteur & designer digital - NoCode/IA",
     company: "Autodidacte / Freelance",
     period: "Juin 2025 - Aujourd'hui",
     description: [
