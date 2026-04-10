@@ -57,7 +57,7 @@ export const BentoGrid: React.FC<BentoGridProps> = ({ onOpenProject }) => {
           ref={scrollContainerRef}
           className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] scroll-smooth"
         >
-          {PROJECTS_DATA.map((project, index) => {
+          {PROJECTS_DATA.map((project) => {
             const isUpcoming = project.isUpcoming;
             const hasDetails = !!project.fullDetails;
             const canOpen = hasDetails && !isUpcoming;
