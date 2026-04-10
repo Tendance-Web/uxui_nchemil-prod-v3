@@ -11,6 +11,9 @@ export const TYPEWRITER_TITLES = [
   'Product builder IA - No Code',
 ];
 
+/** Couleur du texte des titres typewriter. Accepte toute valeur CSS (hex, rgb, classe Tailwind via style, var(…)). */
+export const TEXT_COLOR = `rgb(var(--color-text-main))`;
+
 // ─── Rythme de frappe ────────────────────────────────────────────────────────
 
 /** Délai entre chaque caractère ajouté (ms). Plus la valeur est haute, plus la frappe est lente. */
@@ -68,7 +71,7 @@ export const CURSOR_WIDTH = '25px';
 export const CURSOR_HEIGHT_SCALE = 1.2;
 
 /** Couleur de remplissage du curseur. Accepte toute valeur CSS (hex, rgb, var(…)). */
-export const CURSOR_COLOR = 'var(--color-primary, #27A06C)';
+export const CURSOR_COLOR = `rgb(var(--color-primary))`;
 
 /**
  * Arrondi des coins du curseur.

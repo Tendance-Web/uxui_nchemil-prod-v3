@@ -20,7 +20,8 @@ import {
   CURSOR_SLIDE_EASING,
   CURSOR_BLINK_DURATION,
   CURSOR_BLINK_EASING,
-} from './typewriter.config';
+  TEXT_COLOR,
+} from '../config/typewriter.config';
 
 type Phase = 'initial-delay' | 'typing' | 'pausing-after-type' | 'erasing' | 'pausing-after-erase';
 
@@ -187,7 +188,7 @@ export const Hero: React.FC = () => {
 
         {/* Main Title - Massive & Uppercase & Centered */}
         {/* On regroupe "UX UI Designer" sur une ligne pour éviter l'effet "tour" en centré */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.95] tracking-tighter uppercase animate-slide-up-fade break-words">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tighter uppercase animate-slide-up-fade break-words" style={{ color: TEXT_COLOR }}>
           {/* Ligne typewriter : hauteur fixe pour éviter le saut de layout */}
           <span ref={containerRef} className="block mb-2 md:mb-0 min-h-[1.1em] relative">
             <span ref={textRef}>
@@ -222,7 +223,7 @@ export const Hero: React.FC = () => {
 
         </h1>
 
-        <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto font-light leading-relaxed animate-slide-up-delay">
+        <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto font-medium leading-relaxed animate-slide-up-delay">
           Je conçois des écosystèmes digitaux depuis 10 ans.
           Une approche hybride mêlant design d'interfaces complexes, méthodologies UX, IA et NoCode, enfin un petit peu de code quand même !
         </p>
@@ -231,7 +232,7 @@ export const Hero: React.FC = () => {
         <div className="flex flex-col sm:flex-row gap-4 pt-6 animate-slide-up-delay justify-center w-full sm:w-auto">
           <button
             onClick={scrollToProjects}
-            className="group relative px-6 py-4 bg-primary/10 border border-primary/30 text-primary text-sm font-mono font-bold uppercase tracking-tight rounded hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2 w-full sm:w-auto"
+            className="group relative px-6 py-4 bg-primary/10 border border-primary/30 text-primary text-sm font-mono font-bold uppercase tracking-tight rounded hover:bg-primary/70 hover:text-text-bronze transition-all flex items-center justify-center gap-2 w-full sm:w-auto"
           >
             Voir les projets
             <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -239,7 +240,7 @@ export const Hero: React.FC = () => {
 
           <button
             onClick={scrollToAbout}
-            className="group px-6 py-4 bg-transparent border border-zinc-700 text-white text-sm font-mono font-bold uppercase tracking-tight rounded hover:border-primary hover:text-primary transition-all flex items-center justify-center gap-2 w-full sm:w-auto"
+            className="group px-6 py-4 bg-transparent border border-border text-text-bronze text-sm font-mono font-bold uppercase tracking-tight rounded hover:border-primary hover:text-primary transition-all flex items-center justify-center gap-2 w-full sm:w-auto"
           >
             Mon Parcours
             <User size={16} />

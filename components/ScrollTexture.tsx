@@ -25,7 +25,7 @@ export const ScrollTexture: React.FC = () => {
         backgroundImage: `url("${encodedNoise}")`,
         backgroundRepeat: 'repeat',
         backgroundSize: '400px',
-        opacity: 0.42,
+        opacity: 0.35,
         mixBlendMode: 'screen',
       }}
     />

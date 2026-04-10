@@ -1,6 +1,5 @@
-
-import React from 'react';
-import { ArrowUpRight, Clock } from 'lucide-react';
+import React, { useRef } from 'react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Clock } from 'lucide-react';
 import { PROJECTS_DATA } from '../constants';
 
 interface BentoGridProps {
@@ -8,20 +7,57 @@ interface BentoGridProps {
 }
 
 export const BentoGrid: React.FC<BentoGridProps> = ({ onOpenProject }) => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      // Calcul de la distance de défilement en fonction de la taille de l'écran
+      const scrollAmount = window.innerWidth > 768 ? 524 : window.innerWidth * 0.85; 
+      scrollContainerRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
-    //Titre
-    <section id="projects" className="py-24 bg-surface/70">
+    <section id="projects" className="py-24 bg-surface/70 overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6">
-        <div className="mb-16">
-          <span className="text-primary font-mono text-sm mr-2">//</span>
-          <span className="tech-label text-primary">Réalisations</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 tracking-tight">Projets Sélectionnés</h2>
+        
+        {/* Header comme sur la capture Warp */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div className="max-w-2xl">
+            <h2 className="text-3xl lg:text-4xl font-bold text-text-muted mb-3 flex items-center gap-3 tracking-tight">
+              Réalisations
+            </h2>
+            <p className="text-2xl md:text-3xl lg:text-4xl text-text-bronze font-medium leading-tight tracking-tight">
+              Projets sélectionnés & études de cas
+            </p>
+          </div>
+          <div className="flex items-center gap-3">
+            <button 
+              onClick={() => scroll('left')} 
+              className="p-3 bg-surface border border-border rounded hover:bg-border transition-colors text-text-secondary disabled:opacity-50"
+              aria-label="Projets précédents"
+            >
+              <ArrowLeft size={20} />
+            </button>
+            <button 
+              onClick={() => scroll('right')} 
+              className="p-3 bg-surface border border-border rounded hover:bg-border transition-colors text-text-secondary disabled:opacity-50"
+              aria-label="Projets suivants"
+            >
+              <ArrowRight size={20} />
+            </button>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[450px]">
+        {/* Carousel des projets */}
+        <div 
+          ref={scrollContainerRef}
+          className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] scroll-smooth"
+        >
           {PROJECTS_DATA.map((project, index) => {
-            const isLarge = index === 0 || index === 1;
-            const colSpan = isLarge ? "lg:col-span-2" : "lg:col-span-1";
             const isUpcoming = project.isUpcoming;
             const hasDetails = !!project.fullDetails;
             const canOpen = hasDetails && !isUpcoming;
@@ -32,62 +68,63 @@ export const BentoGrid: React.FC<BentoGridProps> = ({ onOpenProject }) => {
                 key={project.id}
                 onClick={() => canOpen && onOpenProject(project.id)}
                 className={`
-                    group relative bg-surface border border-zinc-700 overflow-hidden transition-all duration-500 rounded
-                    ${colSpan}
-                    ${isUpcoming ? 'cursor-not-allowed opacity-90' : canOpen ? 'cursor-pointer hover:border-primary hover:-translate-y-2 hover:shadow-2xl' : 'cursor-default'}
-                  `}
+                  min-w-[85vw] md:min-w-[450px] lg:min-w-[500px] snap-start flex flex-col group
+                  ${isUpcoming ? 'cursor-not-allowed opacity-90' : canOpen ? 'cursor-pointer' : 'cursor-default'}
+                `}
               >
-                {/* Upcoming Badge */}
-                {isUpcoming && (
-                  <div className="absolute top-6 left-6 z-20 flex items-center gap-2 px-3 py-1.5 bg-zinc-900/90 border border-zinc-700 backdrop-blur-md text-sm font-mono font-bold text-zinc-300 uppercase tracking-tight rounded">
-                    <Clock size={14} />
-                    PROJET À VENIR
-                  </div>
-                )}
+                {/* Image Container */}
+                <div className="relative w-full aspect-video md:aspect-[4/3] rounded-xl overflow-hidden mb-6 border border-border/50 bg-surface shadow-sm">
+                  {/* Upcoming Badge */}
+                  {isUpcoming && (
+                    <div className="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 bg-surface border border-border backdrop-blur-md text-xs font-mono font-bold text-text-secondary uppercase tracking-tight rounded">
+                      <Clock size={14} />
+                      PROJET À VENIR
+                    </div>
+                  )}
 
+                  {/* Client Badge */}
+                  {!isUpcoming && (
+                    <div className="absolute top-4 left-4 z-20 max-w-[80%]">
+                      <span className="tech-label text-text-bronze bg-surface/80 backdrop-blur-md px-3 py-1.5 rounded-md shadow-sm border border-border inline-flex items-center justify-center text-[10px] md:text-xs">
+                        {project.client}
+                      </span>
+                    </div>
+                  )}
 
+                  {/* Bouton d'ouverture visible au survol si pas à venir */}
+                  {canOpen && (
+                    <div className="absolute top-4 right-4 z-20 w-10 h-10 bg-surface/80 backdrop-blur-md border border-border text-text-bronze flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 rounded shadow-lg">
+                      <ArrowUpRight size={20} />
+                    </div>
+                  )}
 
-                {/* Image Background */}
-                <div className="absolute inset-0 bg-zinc-900">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className={`h-full object-cover transition-all duration-700 
-                        ${isPortailRH ? 'w-[105%] max-w-none object-left-top opacity-80' : 'w-full opacity-60'}
-                        ${isUpcoming ? 'grayscale opacity-30 blur-[2px]' : 'group-hover:opacity-100 group-hover:scale-105'}
-                      `}
+                    className={`h-full object-cover transition-transform duration-700 
+                      ${isPortailRH ? 'w-[105%] max-w-none object-left-top' : 'w-full'}
+                      ${isUpcoming ? 'grayscale opacity-50 blur-[2px]' : 'group-hover:scale-105 opacity-90 group-hover:opacity-100'}
+                    `}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                  <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-xl pointer-events-none" />
                 </div>
 
-                {/* Content */}
-                <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-10">
-                  <div className={`transform transition-transform duration-500 ${!isUpcoming ? 'group-hover:-translate-y-2' : ''}`}>
-                    <div className="flex justify-between items-end mb-4">
-                      <span className="tech-label text-white bg-primary/70  leading-none backdrop-blur-sm px-3 py-2 rounded shadow-sm inline-flex items-center justify-center">
-                        {project.client}
+                {/* Text Content */}
+                <div className="px-1 transform transition-transform duration-300 group-hover:translate-x-1">
+                  <h3 className="text-xl md:text-2xl font-bold mb-2 tracking-tight text-text-bronze">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm md:text-base text-text-secondary leading-relaxed mb-4 line-clamp-2 md:line-clamp-none">
+                    {project.description}
+                  </p>
+                  
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.slice(0, 3).map(tag => (
+                      <span key={tag} className="text-xs font-mono uppercase tracking-tight px-2 py-1 bg-surface border border-border text-text-muted rounded">
+                        {tag}
                       </span>
-                      {canOpen && (
-                        <div className="w-10 h-10 bg-primary text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 rounded-full shadow-lg">
-                          <ArrowUpRight size={20} />
-                        </div>
-                      )}
-                    </div>
-
-                    <h3 className="text-3xl font-bold text-white mb-2 uppercase tracking-tight drop-shadow-lg">
-                      {project.title}
-                    </h3>
-                    <p className="text-base text-text-secondary max-w-md mb-6 leading-relaxed drop-shadow-md">
-                      {project.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {project.tags.slice(0, 3).map(tag => (
-                        <span key={tag} className="text-xs font-mono uppercase tracking-tight px-2 py-1 bg-zinc-950/60 backdrop-blur-md border border-zinc-700 text-zinc-300 rounded shadow-sm">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>

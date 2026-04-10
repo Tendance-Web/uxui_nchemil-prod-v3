@@ -25,15 +25,20 @@
       darkMode: 'class',
       theme: {
         extend: {
+          // Source de vérité : config/colors.config.ts — canaux RGB injectés via injectCSSVars()
+          // Format rgb(var(--color-xxx) / <alpha-value>) pour supporter bg-primary/10 etc.
           colors: {
-            background: '#272727',
-            surface: '#0F0F11',
-            border: '#27272A',
-            primary: '#27A06C',
-            'primary-hover': '#1F8A5C',
-            'text-main': '#EDEDED',
-            'text-secondary': 'rgb(236, 236, 236)', // Gris plus clair (Zinc-300) pour meilleure lisibilité
-            'text-muted': '#A1A1AA', // Gris moyen (Zinc-400) au lieu de Zinc-600
+            background: 'rgb(var(--color-background) / <alpha-value>)',
+            surface: 'rgb(var(--color-surface) / <alpha-value>)',
+            border: 'rgb(var(--color-border) / <alpha-value>)',
+            primary: 'rgb(var(--color-primary) / <alpha-value>)',
+            'primary-hover': 'rgb(var(--color-primary-hover) / <alpha-value>)',
+            'text-main': 'rgb(var(--color-text-main) / <alpha-value>)',
+            'text-bronze': 'rgb(var(--color-text-bronze) / <alpha-value>)',
+            'text-secondary': 'rgb(var(--color-text-secondary) / <alpha-value>)',
+            'text-muted': 'rgb(var(--color-text-muted) / <alpha-value>)',
+            'text-vignette': 'rgb(var(--color-text-vignette) / <alpha-value>)',
+            'bg-thumb': 'rgb(var(--color-bg-thumb) / <alpha-value>)',
           },
           fontFamily: {
             sans: ['Geist Sans', 'sans-serif'],
@@ -113,8 +118,8 @@
     }
 
     body {
-      background-color: rgb(17, 17, 17);
-      color: #EDEDED;
+      background-color: var(--color-body-bg);
+      color: rgb(var(--color-text-main));
       font-family: 'Geist Sans', sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -177,16 +182,16 @@
     }
 
     ::-webkit-scrollbar-track {
-      background: #151515;
+      background: var(--color-scrollbar-track);
     }
 
     ::-webkit-scrollbar-thumb {
-      background: #27272A;
+      background: var(--color-scrollbar-thumb);
       border-radius: 5px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background: #3F3F46;
+      background: var(--color-scrollbar-thumb-hover);
     }
 
     #root {
@@ -197,12 +202,23 @@
 
     /* Typewriter char fade-in / fade-out */
     @keyframes tw-char-in {
-      from { opacity: 0; }
-      to   { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
+
     @keyframes tw-char-out {
-      from { opacity: 1; }
-      to   { opacity: 0; }
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0;
+      }
     }
 
     /* Typewriter cursor blink */

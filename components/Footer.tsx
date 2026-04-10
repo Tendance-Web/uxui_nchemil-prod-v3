@@ -7,16 +7,16 @@ export const Footer: React.FC = () => {
     <footer className="bg-surface border-t border-border py-12">
       <div className="max-w-[1440px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="text-center md:text-left">
-          <h4 className="text-white font-bold text-lg mb-2">Nassim CHEMIL</h4>
-          <p className="text-zinc-300 text-sm">Concepteur Webapp / Consultant digital / Product builder IA - No Code</p>
+          <h4 className="text-text-bronze font-bold text-lg mb-2">Nassim CHEMIL</h4>
+          <p className="text-text-secondary text-sm">Concepteur Webapp / Consultant digital / Product builder IA - No Code</p>
         </div>
 
         <div className="flex gap-6 items-center">
-          <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-primary transition-colors">
+          <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary transition-colors">
             <Linkedin size={20} />
             <span className="sr-only">LinkedIn</span>
           </a>
-          <a href={SOCIAL_LINKS.behance} target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-primary transition-colors">
+          <a href={SOCIAL_LINKS.behance} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary transition-colors">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -36,17 +36,17 @@ export const Footer: React.FC = () => {
             </svg>
             <span className="sr-only">Behance</span>
           </a>
-          <a href={SOCIAL_LINKS.email} className="text-zinc-400 hover:text-primary transition-colors">
+          <a href={SOCIAL_LINKS.email} className="text-text-muted hover:text-primary transition-colors">
             <Mail size={20} />
             <span className="sr-only">Email</span>
           </a>
-          <a href={`tel:${SOCIAL_LINKS.phone}`} className="text-zinc-400 hover:text-primary transition-colors">
+          <a href={`tel:${SOCIAL_LINKS.phone}`} className="text-text-muted hover:text-primary transition-colors">
             <Smartphone size={20} />
             <span className="sr-only">Phone</span>
           </a>
         </div>
 
-        <div className="text-zinc-400 text-sm">
+        <div className="text-text-muted text-sm">
           © {new Date().getFullYear()} Tous droits réservés.
         </div>
       </div>

@@ -15,7 +15,7 @@ export const Experience: React.FC = () => {
 
         {/* Left Col: Header */}
         <div className="lg:col-span-4 space-y-6">
-          <h2 className="text-3xl font-bold text-white">Expérience</h2>
+          <h2 className="text-3xl font-bold text-text-bronze">Expérience</h2>
           <p className="text-text-secondary leading-relaxed text-base">
             J'allie les méthodes UX/UI avec la technologie de l'information pour concevoir des interfaces accessibles, cohérentes et intuitives.
             Je collabore activement avec les équipes techniques, comprends les architectures numériques et transforme la complexité en expériences utilisateur claires et efficaces.
@@ -40,7 +40,7 @@ export const Experience: React.FC = () => {
             return (
               <div
                 key={exp.id}
-                className={`group cursor-pointer bg-white/[0.02] border ${isOpen ? 'border-green-500' : 'border-white/[0.05]'} hover:bg-white/[0.04] p-5 md:p-6 rounded-xl transition-all`}
+                className={`group cursor-pointer bg-surface shadow-sm border ${isOpen ? 'border-green-500' : 'border-border'} hover:bg-surface/80 p-5 md:p-6 rounded-xl transition-all`}
                 onClick={() => toggleOpen(exp.id)}
               >
                 <div className="flex items-start gap-4">
@@ -48,19 +48,19 @@ export const Experience: React.FC = () => {
                   <div className="mt-[10px] relative hidden md:flex items-center justify-center w-2 h-2 shrink-0">
                     <div className="absolute w-full h-full rounded-full border border-primary opacity-0 group-hover:animate-ripple"></div>
                     <div className="absolute w-full h-full rounded-full border border-primary opacity-0 group-hover:animate-ripple" style={{ animationDelay: '0.6s' }}></div>
-                    <div className={`relative w-2 h-2 rounded-full transition-colors border border-background z-10 ${isOpen ? 'bg-primary' : 'bg-zinc-600 group-hover:bg-primary'}`}></div>
+                    <div className={`relative w-2 h-2 rounded-full transition-colors border border-background z-10 ${isOpen ? 'bg-primary' : 'bg-border group-hover:bg-primary'}`}></div>
                   </div>
 
                   <div className="flex-1 flex flex-col">
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-2">
-                      <h3 className="text-xl font-bold text-white flex items-center gap-2 text-left">
+                      <h3 className="text-xl font-bold text-text-bronze flex items-center gap-2 text-left">
                         {exp.role}
                         <ChevronDown
                           size={20}
                           className={`text-primary transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
                         />
                       </h3>
-                      <span className="text-xs font-mono text-zinc-400 bg-zinc-900/40 px-3 py-1.5 rounded-md border border-zinc-800 whitespace-nowrap">
+                      <span className="text-xs font-mono text-text-muted bg-surface px-3 py-1.5 rounded-md border border-border whitespace-nowrap">
                         {exp.period}
                       </span>
                     </div>

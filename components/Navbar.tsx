@@ -1,12 +1,26 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, Download } from 'lucide-react';
+import { Menu, X, Download, Sun, Moon } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { setTheme, ThemeType } from '../config/colors.config';
 
 export const Navbar: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const isHome = location.pathname === '/';
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [theme, setThemeState] = useState<ThemeType>(() => (localStorage.getItem('theme') as ThemeType) || 'dark');
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+    setThemeState(newTheme);
+  };
+
+  useEffect(() => {
+    const handleThemeChange = (e: any) => setThemeState(e.detail);
+    window.addEventListener('theme-changed', handleThemeChange);
+    return () => window.removeEventListener('theme-changed', handleThemeChange);
+  }, []);
 
   const cvUrl = "https://drive.google.com/file/d/17JvmawCyu0SRl5_93Azj_QbT8HfMrJQz/view?usp=sharing";
 
@@ -123,7 +137,7 @@ export const Navbar: React.FC = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 h-20 border-b border-border bg-surface/60  transition-transform duration-300 ease-in-out backdrop-blur-md ${isVisible ? 'translate-y-0' : '-translate-y-full'
+        className={`fixed top-0 left-0 right-0 z-50 h-20 bg-surface/90  transition-transform duration-300 ease-in-out backdrop-blur-md ${isVisible ? 'translate-y-0' : '-translate-y-full'
           }`}
       >
         <div className="max-w-[1440px] mx-auto px-6 h-full flex items-center justify-between">
@@ -131,7 +145,7 @@ export const Navbar: React.FC = () => {
           {/* Logo */}
           <button
             onClick={() => handleNavigation('root')}
-            className="text-white font-bold font-mono text-base tracking-tight uppercase hover:text-primary transition-colors z-50"
+            className="text-text-bronze font-bold font-mono text-base tracking-tight uppercase hover:text-primary transition-colors z-50"
           >
             Nassim Chemil
           </button>
@@ -151,22 +165,39 @@ export const Navbar: React.FC = () => {
               href={cvUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-primary/10 border border-primary/30 text-primary font-bold font-mono text-xs uppercase tracking-tight hover:bg-primary hover:text-white transition-all rounded flex items-center gap-2"
+              className="px-4 py-2 bg-primary/30 border border-primary/30 text-primary font-bold font-mono text-xs uppercase tracking-tight hover:bg-primary hover:text-text-bronze transition-all rounded flex items-center gap-2"
             >
               CV
               <Download size={14} />
             </a>
+
+            <button
+              onClick={toggleTheme}
+              className="p-2 text-text-secondary hover:text-primary transition-colors flex items-center justify-center rounded ml-2"
+              aria-label="Changer de thème"
+            >
+              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
           </div>
 
           {/* Mobile Hamburger Button */}
           <div className="md:hidden">
-            <button
-              onClick={() => setIsMobileMenuOpen(true)}
-              className="text-white p-2 hover:bg-white/5 transition-colors rounded"
-              aria-label="Ouvrir le menu"
-            >
-              <Menu size={24} />
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={toggleTheme}
+                className="text-text-bronze p-2 hover:bg-white/5 transition-colors rounded"
+                aria-label="Changer de thème"
+              >
+                {theme === 'dark' ? <Sun size={24} /> : <Moon size={24} />}
+              </button>
+              <button
+                onClick={() => setIsMobileMenuOpen(true)}
+                className="text-text-bronze p-2 hover:bg-white/5 transition-colors rounded"
+                aria-label="Ouvrir le menu"
+              >
+                <Menu size={24} />
+              </button>
+            </div>
           </div>
         </div>
       </nav>
@@ -180,14 +211,14 @@ export const Navbar: React.FC = () => {
                 setIsMobileMenuOpen(false);
                 handleNavigation('root');
               }}
-              className="text-white font-bold font-mono text-base tracking-tight uppercase"
+              className="text-text-bronze font-bold font-mono text-base tracking-tight uppercase"
             >
               Nassim Chemil
             </button>
 
             <button
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-white p-2 hover:text-primary transition-colors rounded"
+              className="text-text-bronze p-2 hover:text-primary transition-colors rounded"
               aria-label="Fermer le menu"
             >
               <X size={24} />
@@ -199,7 +230,7 @@ export const Navbar: React.FC = () => {
               <button
                 key={item}
                 onClick={() => handleNavigation(item)}
-                className="text-left text-2xl font-bold font-mono text-white uppercase tracking-tighter hover:text-primary transition-colors"
+                className="text-left text-2xl font-bold font-mono text-text-bronze uppercase tracking-tighter hover:text-primary transition-colors"
               >
                 {getLabel(item)}
               </button>
@@ -209,7 +240,7 @@ export const Navbar: React.FC = () => {
               href={cvUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-4 bg-primary text-white font-bold font-mono text-lg uppercase tracking-tight text-center rounded flex items-center justify-center gap-3 mt-4"
+              className="w-full py-4 bg-primary text-text-bronze font-bold font-mono text-lg uppercase tracking-tight text-center rounded flex items-center justify-center gap-3 mt-4"
             >
               Télécharger mon CV
               <Download size={20} />

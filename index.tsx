@@ -1,6 +1,9 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { initTheme } from './config/colors.config';
 import App from './App';
+
+initTheme();
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
