@@ -8,7 +8,7 @@ export const Navbar: React.FC = () => {
   const location = useLocation();
   const isHome = location.pathname === '/';
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [theme, setThemeState] = useState<ThemeType>(() => (localStorage.getItem('theme') as ThemeType) || 'dark');
+  const [theme, setThemeState] = useState<ThemeType>(() => (localStorage.getItem('theme') as ThemeType) || 'light');
 
   const toggleTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';

@@ -84,7 +84,7 @@ export const THEMES = {
   }
 };
 
-export function injectCSSVars(theme: ThemeType = 'dark'): void {
+export function injectCSSVars(theme: ThemeType = 'light'): void {
   const root = document.documentElement;
   const currentTheme = THEMES[theme];
 
@@ -117,8 +117,7 @@ export function initTheme(): ThemeType {
     injectCSSVars(saved);
     return saved;
   }
-  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-  const initialTheme = prefersLight ? 'light' : 'dark';
+  const initialTheme = 'light';
   injectCSSVars(initialTheme);
   return initialTheme;
 }
