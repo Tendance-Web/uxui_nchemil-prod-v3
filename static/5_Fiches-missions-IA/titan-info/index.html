@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche de Mission — Titan Info × Nacim CHEMIL</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        :root {
+            --primary: #1a1a2e;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --bg: #0d0d1a;
+            --bg-card: #141428;
+            --bg-card-hover: #1a1a35;
+            --text: #e4e4f0;
+            --text-muted: #9595b0;
+            --border: #28284a;
+            --gradient: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            --gradient-soft: linear-gradient(135deg, rgba(108,92,231,0.1), rgba(162,155,254,0.1));
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 2rem;
+            background: radial-gradient(ellipse at 30% 20%, rgba(108,92,231,0.07) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 80%, rgba(162,155,254,0.08) 0%, transparent 60%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: var(--gradient-soft);
+            border: 1px solid rgba(108,92,231,0.2);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff, #c8c8e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            background: var(--gradient);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(108,92,231,0.3);
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .section-subtitle { color: var(--text-muted); margin-bottom: 3rem; font-size: 1.05rem; }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 3px;
+            margin-bottom: 2rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(108,92,231,0.3);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--gradient-soft);
+            border: 1px solid rgba(108,92,231,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.8rem; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        .context {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .context h3 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--accent-light); }
+        .context p { color: var(--text-muted); font-size: 1rem; }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-tag {
+            padding: 0.4rem 1rem;
+            background: rgba(108,92,231,0.08);
+            border: 1px solid rgba(108,92,231,0.15);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--accent-light);
+            font-weight: 500;
+        }
+
+        .timeline { position: relative; padding-left: 2rem; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item { position: relative; padding-bottom: 2rem; }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem; top: 0.5rem;
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 2px solid var(--bg);
+            transform: translateX(-5px);
+        }
+
+        .timeline-item h4 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.3rem; }
+        .timeline-item p { color: var(--text-muted); font-size: 0.95rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.3rem; }
+
+        .advantages-list { list-style: none; }
+
+        .advantages-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .advantages-list li:last-child { border-bottom: none; }
+
+        .check-icon {
+            flex-shrink: 0;
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            background: rgba(108,92,231,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-top: 0.1rem;
+        }
+
+        .advantage-content strong { display: block; margin-bottom: 0.2rem; }
+        .advantage-content p { color: var(--text-muted); font-size: 0.9rem; }
+
+        .cta-section {
+            text-align: center;
+            padding: 5rem 2rem;
+            background: radial-gradient(ellipse at center, rgba(108,92,231,0.06) 0%, transparent 70%);
+        }
+
+        .cta-section h2 { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
+        .cta-section p { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        .btn-primary {
+            padding: 0.9rem 2rem;
+            background: var(--gradient);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(108,92,231,0.3);
+        }
+
+        .btn-secondary {
+            padding: 0.9rem 2rem;
+            background: transparent;
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            transition: border-color 0.2s;
+        }
+
+        .btn-secondary:hover { border-color: var(--accent); }
+
+        .alternance-box {
+            background: linear-gradient(135deg, rgba(108,92,231,0.05), rgba(162,155,254,0.08));
+            border: 1px solid rgba(108,92,231,0.15);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .alternance-box h3 { font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--accent-light); }
+
+        .alternance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .alternance-item { text-align: center; }
+        .alternance-item strong { display: block; font-size: 1.1rem; margin-bottom: 0.3rem; }
+        .alternance-item span { color: var(--text-muted); font-size: 0.9rem; }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+        }
+
+        footer a { color: var(--accent-light); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .section { padding: 3rem 1.5rem; }
+            .context { padding: 2rem; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media print {
+            body { background: #fff; color: #1a1a2e; }
+            .hero { min-height: auto; padding: 2rem; background: none; }
+            .hero h1 { background: none; -webkit-text-fill-color: #1a1a2e; }
+            .card, .context, .stat, .alternance-box { border-color: #ddd; background: #f5f3ff; }
+            .section { padding: 2rem 0; }
+            .hero-cta, .cta-section { display: none; }
+            .stat-value { background: none; -webkit-text-fill-color: #6c5ce7; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">Proposition de collaboration — Contrat de Professionnalisation</div>
+            <h1>Un Product Builder IA<br>pour <span>Titan Info</span></h1>
+            <p class="hero-subtitle">
+                +17 ans d'expérience en UX/UI Design, une expertise NoCode & IA en pleine expansion,
+                pour enrichir votre offre de services IT à Clisson.
+            </p>
+            <a href="mailto:nchemil@gmail.com" class="hero-cta">
+                Échangeons ensemble &rarr;
+            </a>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Pourquoi Titan Info ?</h2>
+        <p class="section-subtitle">Votre expertise IT de proximité mérite de nouvelles compétences numériques.</p>
+
+        <div class="context">
+            <h3>Votre ADN</h3>
+            <p>
+                Depuis plus de 15 ans, Titan Info (anciennement Vallet Informatique) accompagne les professionnels et particuliers
+                de Clisson et ses environs. Votre offre couvre le matériel informatique, les logiciels (EBP Partner Gold, Google Workspace),
+                la téléphonie d'entreprise, la création de sites web (WordPress), la cybersécurité (MailinBlack),
+                la formation et l'assistance informatique. Votre équipe de 5 experts mise sur la proximité, la réactivité et l'écoute client.
+            </p>
+        </div>
+
+        <div class="context">
+            <h3>Ce que je peux vous apporter</h3>
+            <p>
+                Avec 17 ans d'expérience en UX/UI et une formation en Product Building IA/NoCode,
+                je peux renforcer significativement votre pôle création web et vous aider à proposer
+                des services à plus forte valeur ajoutée : sites modernes sous Webflow (au-delà de WordPress),
+                applications métier NoCode pour vos clients PME, automatisation de processus, et intégration IA.
+                Le tout en restant ancré à Clisson, au cœur de votre zone de chalandise.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Missions proposées</h2>
+        <p class="section-subtitle">Des missions concrètes pour développer votre offre de services numériques.</p>
+
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">🌐</div>
+                <h3>Création de sites web professionnels</h3>
+                <p>Développement de sites vitrines et e-commerce sous Webflow, en complément de votre offre WordPress. Design moderne, responsive, optimisé SEO. Élargissement de votre catalogue de services web.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <h3>Design UX/UI pour clients PME</h3>
+                <p>Maquettes Figma, prototypage interactif, identité visuelle digitale. Apporter un niveau de design professionnel à vos clients locaux qui n'ont pas accès aux grandes agences.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📱</div>
+                <h3>Applications métier NoCode</h3>
+                <p>Développement d'outils sur mesure en WeWeb + Xano ou Airtable pour les PME locales : gestion de stocks, CRM simplifié, portails clients, suivi d'interventions.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>Automatisation pour les PME</h3>
+                <p>Mise en place de workflows automatisés via Make et N8N pour les clients : facturation automatique, relances, synchronisation entre EBP et autres outils, rapports périodiques.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🤖</div>
+                <h3>Services IA pour entreprises</h3>
+                <p>Chatbots d'assistance, agents IA pour le support client, génération de contenu, automatisation documentaire. Nouvelle offre de services à forte valeur ajoutée.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎓</div>
+                <h3>Support formation & documentation</h3>
+                <p>Contribution aux formations Datadockées : supports pédagogiques, tutoriels vidéo, documentation technique. Transmission de compétences NoCode et IA aux clients.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Profil du candidat</h2>
+        <p class="section-subtitle">Nacim CHEMIL — UX/UI Designer IA & NoCode</p>
+
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="stat-value">+17</div>
+                <div class="stat-label">Années d'expérience</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">-50%</div>
+                <div class="stat-label">Temps lancement recharge VE<br>(Total Energies)</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">-45%</div>
+                <div class="stat-label">Temps de traitement RH<br>(Caisse des Dépôts)</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">500</div>
+                <div class="stat-label">Boutiques virtuelles refondues<br>(Generali)</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem;">
+            <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Expériences clés</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Total Energies — UX/UI Designer</h4>
+                    <p>Refonte parcours recharge VE (+200 écrans), design system RGAA, -50% temps de lancement recharge.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Caisse des Dépôts — UX/UI Designer</h4>
+                    <p>Refonte portail RH, -45% temps de traitement des demandes.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Generali — UX/UI Designer (10 ans)</h4>
+                    <p>Refonte UI de 500 boutiques virtuelles, -50% temps chargement, -72h délai transaction.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Palo IT — UX/UI Designer</h4>
+                    <p>Refonte CRM Joozy, +30% nouveaux contacts.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 2rem;">
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Compétences techniques</h3>
+            <div class="skills-container">
+                <span class="skill-tag">Figma</span>
+                <span class="skill-tag">Webflow</span>
+                <span class="skill-tag">WordPress</span>
+                <span class="skill-tag">HTML / CSS / JS</span>
+                <span class="skill-tag">WeWeb + Xano</span>
+                <span class="skill-tag">Airtable</span>
+                <span class="skill-tag">Make</span>
+                <span class="skill-tag">N8N</span>
+                <span class="skill-tag">Supabase</span>
+                <span class="skill-tag">IA / LLM / RAG</span>
+                <span class="skill-tag">Google Workspace</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">SEO</span>
+                <span class="skill-tag">Design System</span>
+                <span class="skill-tag">Agile</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Pourquoi ce partenariat ?</h2>
+        <p class="section-subtitle">Un recrutement stratégique pour élargir votre offre de services.</p>
+
+        <ul class="advantages-list">
+            <li>
+                <div class="check-icon">✓</div>
+                <div class="advantage-content">
+                    <strong>Coût maîtrisé — ~1 347 €/mois net (PME)</strong>
+                    <p>Grâce aux aides cumulées (État + France Travail AFE 2 000 € + OPCO tutorale 345 €/mois × 6 mois), le coût net est de ~1 347 €/mois les 6 premiers mois, puis ~1 692 €. Formation 100% OPCO. Pas de prime de précarité (économie >2 100 €).</p>
+                </div>
+            </li>
+            <li>
+                <div class="check-icon">✓</div>
+                <div class="advantage-content">
+                    <strong>Voisins à Clisson</strong>
+                    <p>Basé à Clisson/Boussay, à quelques minutes de vos locaux rue des Filatures. Intégration naturelle dans votre équipe de 5 experts.</p>
+                </div>
+            </li>
+            <li>
+                <div class="check-icon">✓</div>
+                <div class="advantage-content">
+                    <strong>Élargissement de votre offre web</strong>
+                    <p>Au-delà de WordPress : Webflow, applications NoCode, automatisation, IA. Nouvelle gamme de services pour vos clients PME.</p>
+                </div>
+            </li>
+            <li>
+                <div class="check-icon">✓</div>
+                <div class="advantage-content">
+                    <strong>Profil senior, pas un stagiaire</strong>
+                    <p>+17 ans d'expérience chez Generali, Total Energies, Caisse des Dépôts. Autonome et immédiatement productif.</p>
+                </div>
+            </li>
+            <li>
+                <div class="check-icon">✓</div>
+                <div class="advantage-content">
+                    <strong>Synergie avec votre offre EBP</strong>
+                    <p>Capacité à automatiser les connexions entre EBP et autres outils via Make/N8N. Valeur ajoutée directe pour vos clients EBP.</p>
+                </div>
+            </li>
+            <li>
+                <div class="check-icon">✓</div>
+                <div class="advantage-content">
+                    <strong>Compétences IA différenciantes</strong>
+                    <p>Proposez des services IA à vos clients locaux : chatbots, automatisation documentaire, assistants intelligents. Démarquez-vous de la concurrence.</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Modalités de l'alternance</h2>
+        <p class="section-subtitle">Formation Alegria.academy — Titre RNCP 37873, Niveau 6 (BAC+4)</p>
+
+        <div class="alternance-box">
+            <h3>Organisation pratique</h3>
+            <div class="alternance-grid">
+                <div class="alternance-item">
+                    <strong>4 jours / semaine</strong>
+                    <span>En entreprise chez Titan Info</span>
+                </div>
+                <div class="alternance-item">
+                    <strong>1 jour / semaine</strong>
+                    <span>En formation à distance</span>
+                </div>
+                <div class="alternance-item">
+                    <strong>1 semaine / trimestre</strong>
+                    <span>Session intensive de formation</span>
+                </div>
+                <div class="alternance-item">
+                    <strong>12 mois</strong>
+                    <span>Durée du contrat (sept. 2026 — sept. 2027)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="alternance-box" style="margin-top: 1.5rem;">
+            <h3>Programme de formation</h3>
+            <div class="timeline" style="margin-top: 1rem;">
+                <div class="timeline-item">
+                    <h4>Bloc 1 — Développer une application sécurisée (Bootcamp, mai-août 2026)</h4>
+                    <p>Figma, Airtable, Make, WeWeb, Xano, Webflow, HTML/CSS/JS, IA générative, design thinking.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Bloc 2 — Concevoir une application en couches (Alternance)</h4>
+                    <p>Airtable avancé, Merise/UML, WeWeb & Xano Expert, Flutterflow, Supabase, tests et sécurité.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Bloc 3 — Préparer le déploiement (Alternance)</h4>
+                    <p>Make avancé, N8N, LM Studio (LLM), Stripe, Power Platform, CI/CD, monitoring.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Prêt à en discuter ?</h2>
+        <p>Rencontrons-nous pour explorer cette collaboration.<br>Disponible pour un échange à Clisson, par téléphone ou visio.</p>
+        <div class="cta-buttons">
+            <a href="mailto:nchemil@gmail.com" class="btn-primary">Contactez-moi par email</a>
+            <a href="https://nchemil.vercel.app" target="_blank" class="btn-secondary">Voir mon portfolio</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>Nacim CHEMIL — Product Builder IA & NoCode en devenir</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="mailto:nchemil@gmail.com">nchemil@gmail.com</a> ·
+            <a href="https://nchemil.vercel.app" target="_blank">nchemil.vercel.app</a> ·
+            Nantes / Clisson / Boussay
+        </p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche de Mission — ICC Digital × Nacim CHEMIL</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        :root {
+            --primary: #1a1a2e;
+            --accent: #e94560;
+            --accent-light: #ff6b81;
+            --bg: #0f0f1a;
+            --bg-card: #16162a;
+            --bg-card-hover: #1c1c35;
+            --text: #e8e8f0;
+            --text-muted: #9898b0;
+            --border: #2a2a45;
+            --gradient: linear-gradient(135deg, #e94560, #0f3460);
+            --gradient-soft: linear-gradient(135deg, rgba(233,69,96,0.1), rgba(15,52,96,0.1));
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 2rem;
+            background: radial-gradient(ellipse at 30% 20%, rgba(233,69,96,0.08) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 80%, rgba(15,52,96,0.12) 0%, transparent 60%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: var(--gradient-soft);
+            border: 1px solid rgba(233,69,96,0.2);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent-light);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff, #c0c0d0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            background: var(--gradient);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(233,69,96,0.3);
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-size: 1.05rem;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 3px;
+            margin-bottom: 2rem;
+        }
+
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(233,69,96,0.3);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--gradient-soft);
+            border: 1px solid rgba(233,69,96,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Context section */
+        .context {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .context h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-light);
+        }
+
+        .context p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* Skills tags */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-tag {
+            padding: 0.4rem 1rem;
+            background: rgba(233,69,96,0.08);
+            border: 1px solid rgba(233,69,96,0.15);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--accent-light);
+            font-weight: 500;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 2px solid var(--bg);
+            transform: translateX(-5px);
+        }
+
+        .timeline-item h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+        }
+
+        /* Advantages list */
+        .advantages-list {
+            list-style: none;
+        }
+
+        .advantages-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .advantages-list li:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(233,69,96,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-top: 0.1rem;
+        }
+
+        .advantage-content strong {
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .advantage-content p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 5rem 2rem;
+            background: radial-gradient(ellipse at center, rgba(233,69,96,0.06) 0%, transparent 70%);
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 0.9rem 2rem;
+            background: var(--gradient);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(233,69,96,0.3);
+        }
+
+        .btn-secondary {
+            padding: 0.9rem 2rem;
+            background: transparent;
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            transition: border-color 0.2s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+        }
+
+        /* Alternance info */
+        .alternance-box {
+            background: linear-gradient(135deg, rgba(233,69,96,0.05), rgba(15,52,96,0.08));
+            border: 1px solid rgba(233,69,96,0.15);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .alternance-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-light);
+        }
+
+        .alternance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .alternance-item {
+            text-align: center;
+        }
+
+        .alternance-item strong {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .alternance-item span {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+        }
+
+        footer a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section { padding: 3rem 1.5rem; }
+            .context { padding: 2rem; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* Print styles */
+        @media print {
+            body { background: #fff; color: #1a1a2e; }
+            .hero { min-height: auto; padding: 2rem; background: none; }
+            .hero h1 { background: none; -webkit-text-fill-color: #1a1a2e; color: #1a1a2e; }
+            .card, .context, .stat, .alternance-box { border-color: #ddd; background: #f9f9fc; }
+            .section { padding: 2rem 0; }
+            .hero-cta, .cta-section { display: none; }
+            .stat-value { background: none; -webkit-text-fill-color: #e94560; }
+            .badge { background: #f0f0f5; border-color: #ddd; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">Proposition de collaboration — Contrat de Professionnalisation</div>
+            <h1>Un Product Builder IA<br>pour <span>ICC Digital</span></h1>
+            <p class="hero-subtitle">
+                +17 ans d'expérience en UX/UI Design, une expertise NoCode & IA en pleine expansion,
+                et un engagement de 4 jours par semaine au service de votre agence web.
+            </p>
+            <a href="mailto:nchemil@gmail.com" class="hero-cta">
+                Échangeons ensemble &rarr;
+            </a>
+        </div>
+    </section>
+
+    <!-- Contexte entreprise -->
+    <section class="section">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Pourquoi ICC Digital ?</h2>
+        <p class="section-subtitle">Votre agence web 360° mérite un profil polyvalent à la hauteur de vos ambitions.</p>
+
+        <div class="context">
+            <h3>Votre ADN</h3>
+            <p>
+                Basée à Clisson, ICC Digital accompagne ses clients dans leur transformation digitale depuis plusieurs années :
+                e-commerce sous PrestaShop, création de sites vitrines, référencement (SEO/SEA/SMO), design graphique,
+                hébergement et formations. Vous travaillez avec des clients exigeants comme E.Leclerc, Total Energies ou Global Exam.
+                Votre positionnement 360° exige une équipe polyvalente, capable de couvrir design, développement et stratégie digitale.
+            </p>
+        </div>
+
+        <div class="context">
+            <h3>Ce que je peux vous apporter</h3>
+            <p>
+                Fort de 17 ans d'expérience en UX/UI (Generali, Total Energies, Caisse des Dépôts, Palo IT),
+                je suis en reconversion vers le métier de Product Builder IA / NoCode via Alegria.academy
+                (titre RNCP 37873 — Concepteur Développeur d'Application, Niveau 6). Mon double profil
+                design + technique me permet d'intervenir sur l'ensemble de la chaîne de valeur de vos projets web,
+                du prototypage Figma au développement Webflow, en passant par l'automatisation et l'intégration IA.
+            </p>
+        </div>
+    </section>
+
+    <!-- Missions -->
+    <section class="section">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Missions proposées</h2>
+        <p class="section-subtitle">Des missions concrètes, alignées avec vos besoins et mon programme de formation.</p>
+
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <h3>Conception UX/UI de sites clients</h3>
+                <p>Création de maquettes Figma, prototypage interactif, design system et livrables pour vos projets e-commerce et sites vitrines. Audit UX de l'existant et recommandations ergonomiques.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🌐</div>
+                <h3>Développement web NoCode</h3>
+                <p>Intégration et développement de sites sous Webflow, création de landing pages performantes, composants réutilisables et sites responsives sans dépendance au code traditionnel.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🛒</div>
+                <h3>Support projets e-commerce</h3>
+                <p>Assistance sur vos projets PrestaShop : amélioration UX des parcours d'achat, optimisation des fiches produits, design d'interfaces de gestion back-office.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>Automatisation de processus</h3>
+                <p>Mise en place de workflows automatisés via Make et N8N : synchronisation de données clients, notifications, génération de rapports, connexion entre outils métier.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🤖</div>
+                <h3>Intégration IA</h3>
+                <p>Développement d'agents IA et chatbots pour vos clients, intégration de LLM dans les workflows, génération de contenu assistée par IA, automatisation SEO intelligente.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📈</div>
+                <h3>SEO & Webmarketing</h3>
+                <p>Audit SEO technique, optimisation on-page, stratégie de contenu assistée par IA, suivi de performance. Complémentarité avec vos services de référencement existants.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profil candidat -->
+    <section class="section">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Profil du candidat</h2>
+        <p class="section-subtitle">Nacim CHEMIL — UX/UI Designer IA & NoCode</p>
+
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="stat-value">+17</div>
+                <div class="stat-label">Années d'expérience</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">-50%</div>
+                <div class="stat-label">Temps lancement recharge VE<br>(Total Energies)</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">-45%</div>
+                <div class="stat-label">Temps de traitement RH<br>(Caisse des Dépôts)</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">500</div>
+                <div class="stat-label">Boutiques virtuelles refondues<br>(Generali)</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem;">
+            <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Expériences clés</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Total Energies — UX/UI Designer</h4>
+                    <p>Refonte du parcours recharge véhicule électrique (+200 écrans), design system RGAA, réduction de 50% du temps de lancement de recharge.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Caisse des Dépôts — UX/UI Designer</h4>
+                    <p>Refonte du portail RH, réduction de 45% du temps de traitement des demandes.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Generali — UX/UI Designer (10 ans)</h4>
+                    <p>Refonte UI web de 500 boutiques virtuelles, -50% temps de chargement, -72h sur les délais de transaction.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Palo IT — UX/UI Designer</h4>
+                    <p>Refonte CRM Joozy, augmentation de 30% des nouveaux contacts.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 2rem;">
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Compétences techniques</h3>
+            <div class="skills-container">
+                <span class="skill-tag">Figma</span>
+                <span class="skill-tag">Webflow</span>
+                <span class="skill-tag">HTML / CSS / JS</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">WeWeb</span>
+                <span class="skill-tag">Xano</span>
+                <span class="skill-tag">Airtable</span>
+                <span class="skill-tag">Make</span>
+                <span class="skill-tag">N8N</span>
+                <span class="skill-tag">Supabase</span>
+                <span class="skill-tag">ChatGPT</span>
+                <span class="skill-tag">Claude</span>
+                <span class="skill-tag">MCP Server</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Notion</span>
+                <span class="skill-tag">Miro</span>
+                <span class="skill-tag">SEO</span>
+                <span class="skill-tag">Design System</span>
+                <span class="skill-tag">RGAA / Accessibilité</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avantages -->
+    <section class="section">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Pourquoi ce partenariat ?</h2>
+        <p class="section-subtitle">Un recrutement stratégique, sans risque financier.</p>
+
+        <ul class="advantages-list">
+            <li>
+                <div class="check-icon">✓</div>
+                <div class="advantage-content">
+                    <strong>Coût maîtrisé — ~1 347 €/mois net (PME)</strong>
+                    <p>Grâce aux aides cumulées (État + France Travail AFE 2 000 € + OPCO tutorale 345 €/mois × 6 mois), le coût net est de ~1 347 €/mois les 6 premiers mois, puis ~1 692 €. Formation 100% OPCO. Pas de prime de précarité (économie >2 100 €).</p>
+                </div>
+            </li>
+            <li>
+                <div class="check-icon">✓</div>
+                <div class="advantage-content">
+                    <strong>Un profil senior, pas un débutant</strong>
+                    <p>+17 ans d'expérience en UX/UI Design dans des grands groupes. Nacim est immédiatement opérationnel et autonome sur vos projets clients.</p>
+                </div>
+            </li>
+            <li>
+                <div class="check-icon">✓</div>
+                <div class="advantage-content">
+                    <strong>Double compétence Design + Technique</strong>
+                    <p>Rare combinaison d'expertise UX/UI et de compétences NoCode/IA. Un seul profil pour couvrir design, développement et automatisation.</p>
+                </div>
+            </li>
+            <li>
+                <div class="check-icon">✓</div>
+                <div class="advantage-content">
+                    <strong>Résultats mesurables prouvés</strong>
+                    <p>Des KPIs concrets chez chaque employeur : -50% temps de chargement, -45% temps de traitement, +30% de contacts. Un impact quantifiable pour vos clients.</p>
+                </div>
+            </li>
+            <li>
+                <div class="check-icon">✓</div>
+                <div class="advantage-content">
+                    <strong>Proximité géographique</strong>
+                    <p>Basé à Clisson / Boussay, à proximité immédiate de vos locaux. Disponibilité maximale et intégration fluide dans votre équipe.</p>
+                </div>
+            </li>
+            <li>
+                <div class="check-icon">✓</div>
+                <div class="advantage-content">
+                    <strong>Montée en compétences IA continue</strong>
+                    <p>Formation Alegria.academy couvrant agents IA, RAG, LLM, automatisation avancée. Les nouvelles compétences acquises chaque semaine sont directement applicables à vos projets.</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Modalités -->
+    <section class="section">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Modalités de l'alternance</h2>
+        <p class="section-subtitle">Formation Alegria.academy — Titre RNCP 37873, Niveau 6 (BAC+4)</p>
+
+        <div class="alternance-box">
+            <h3>Organisation pratique</h3>
+            <div class="alternance-grid">
+                <div class="alternance-item">
+                    <strong>4 jours / semaine</strong>
+                    <span>En entreprise chez ICC Digital</span>
+                </div>
+                <div class="alternance-item">
+                    <strong>1 jour / semaine</strong>
+                    <span>En formation à distance</span>
+                </div>
+                <div class="alternance-item">
+                    <strong>1 semaine / trimestre</strong>
+                    <span>Session intensive de formation</span>
+                </div>
+                <div class="alternance-item">
+                    <strong>12 mois</strong>
+                    <span>Durée du contrat (sept. 2026 — sept. 2027)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="alternance-box" style="margin-top: 1.5rem;">
+            <h3>Programme de formation</h3>
+            <div class="timeline" style="margin-top: 1rem;">
+                <div class="timeline-item">
+                    <h4>Bloc 1 — Développer une application sécurisée (Bootcamp, mai-août 2026)</h4>
+                    <p>Figma, Airtable, Make, WeWeb, Xano, Webflow, HTML/CSS/JS, IA générative, design thinking, prototypage.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Bloc 2 — Concevoir une application en couches (Alternance)</h4>
+                    <p>Airtable avancé, Merise/UML, WeWeb & Xano Expert, Flutterflow, Supabase, tests et sécurité.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Bloc 3 — Préparer le déploiement (Alternance)</h4>
+                    <p>Make avancé, N8N, LM Studio (LLM), Stripe, Power Platform, CI/CD, monitoring.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Prêt à en discuter ?</h2>
+        <p>Rencontrons-nous pour explorer cette collaboration.<br>Disponible pour un échange téléphonique, visio ou en personne à Clisson.</p>
+        <div class="cta-buttons">
+            <a href="mailto:nchemil@gmail.com" class="btn-primary">Contactez-moi par email</a>
+            <a href="https://nchemil.vercel.app" target="_blank" class="btn-secondary">Voir mon portfolio</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Nacim CHEMIL — Product Builder IA & NoCode en devenir</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="mailto:nchemil@gmail.com">nchemil@gmail.com</a> ·
+            <a href="https://nchemil.vercel.app" target="_blank">nchemil.vercel.app</a> ·
+            Nantes / Clisson / Boussay
+        </p>
+    </footer>
+
+</body>
+</html>

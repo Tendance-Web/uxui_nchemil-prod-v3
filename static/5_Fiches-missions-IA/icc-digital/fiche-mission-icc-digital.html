@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche de Mission — ICC Digital × Nacim CHEMIL</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        :root {
+            --primary: #1a1a2e;
+            --accent: #e94560;
+            --text: #2d2d3a;
+            --text-light: #6b6b80;
+            --bg: #ffffff;
+            --bg-light: #f8f8fc;
+            --border: #e5e5ef;
+        }
+
+        @page {
+            size: A4;
+            margin: 15mm 18mm;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 10.5pt;
+            background: var(--bg);
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 1.2rem;
+            border-bottom: 3px solid var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .header-left h1 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .header-left h1 span {
+            color: var(--accent);
+        }
+
+        .header-left .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-top: 0.3rem;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .header-right strong {
+            color: var(--text);
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid var(--accent);
+            margin-bottom: 0.8rem;
+            display: inline-block;
+        }
+
+        .section p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Two columns */
+        .two-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        /* Mission cards */
+        .mission {
+            background: var(--bg-light);
+            border-left: 3px solid var(--accent);
+            padding: 0.7rem 1rem;
+            margin-bottom: 0.6rem;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .mission h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            color: var(--primary);
+        }
+
+        .mission p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* Skills */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.5rem;
+        }
+
+        .skill {
+            padding: 0.2rem 0.7rem;
+            background: rgba(233,69,96,0.08);
+            border: 1px solid rgba(233,69,96,0.2);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* Advantage items */
+        .advantage {
+            display: flex;
+            gap: 0.6rem;
+            margin-bottom: 0.5rem;
+            align-items: flex-start;
+        }
+
+        .advantage-check {
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 700;
+            margin-top: 0.15rem;
+        }
+
+        .advantage strong {
+            font-size: 0.95rem;
+        }
+
+        .advantage p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* Alternance box */
+        .alternance-box {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .alternance-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.8rem;
+            text-align: center;
+        }
+
+        .alternance-item strong {
+            display: block;
+            font-size: 1rem;
+            color: var(--accent);
+        }
+
+        .alternance-item span {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Stats row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 0.6rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .stat-item .value {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .stat-item .label {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Experience list */
+        .exp-item {
+            margin-bottom: 0.4rem;
+        }
+
+        .exp-item strong {
+            color: var(--primary);
+        }
+
+        .exp-item span {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Page break */
+        .page-break {
+            page-break-before: always;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- En-tête -->
+    <div class="header">
+        <div class="header-left">
+            <h1>Fiche de Mission<br><span>ICC Digital × Nacim CHEMIL</span></h1>
+            <div class="subtitle">Product Builder IA & NoCode — Contrat de Professionnalisation</div>
+        </div>
+        <div class="header-right">
+            <strong>Nacim CHEMIL</strong><br>
+            nchemil@gmail.com<br>
+            Clisson / Boussay / Nantes<br>
+            nchemil.vercel.app
+        </div>
+    </div>
+
+    <!-- Intitulé du poste -->
+    <div class="section">
+        <div class="section-title">Intitulé du poste</div>
+        <p><strong>Product Builder IA & NoCode</strong> — Alternance 12 mois (septembre 2026 — septembre 2027)</p>
+        <p>Formation : Alegria.academy — Titre RNCP 37873 « Concepteur Développeur d'Application » (Niveau 6 / BAC+4)</p>
+    </div>
+
+    <!-- Contexte entreprise -->
+    <div class="section">
+        <div class="section-title">Contexte — ICC Digital</div>
+        <p>
+            <strong>ICC Digital</strong> est une agence web 360° basée à Clisson, spécialisée en e-commerce (partenaire PrestaShop),
+            création de sites vitrines, référencement (SEO/SEA/SMO), design graphique, hébergement et formations digitales.
+            L'agence accompagne des clients de renom tels que E.Leclerc, Total Energies et Global Exam.
+        </p>
+        <p>
+            Le recrutement d'un Product Builder IA & NoCode permettrait à ICC Digital d'élargir son offre de services,
+            d'accélérer la production de sites clients grâce aux outils NoCode, et de proposer des solutions innovantes
+            intégrant l'intelligence artificielle — un avantage concurrentiel fort pour une agence web de proximité.
+        </p>
+    </div>
+
+    <!-- Missions détaillées -->
+    <div class="section">
+        <div class="section-title">Missions détaillées</div>
+
+        <div class="mission">
+            <h4>1. Conception UX/UI de projets clients</h4>
+            <p>Maquettes Figma, prototypage interactif, design system, audit UX de sites existants, recommandations ergonomiques pour sites e-commerce et vitrines.</p>
+        </div>
+
+        <div class="mission">
+            <h4>2. Développement web NoCode (Webflow)</h4>
+            <p>Création et intégration de sites vitrines et landing pages sous Webflow. Composants réutilisables, responsive design, optimisation performance.</p>
+        </div>
+
+        <div class="mission">
+            <h4>3. Support projets e-commerce PrestaShop</h4>
+            <p>Amélioration UX des parcours d'achat, optimisation des fiches produits, design d'interfaces back-office, conseil ergonomique pour les projets e-commerce.</p>
+        </div>
+
+        <div class="mission">
+            <h4>4. Automatisation de processus internes et clients</h4>
+            <p>Workflows automatisés via Make et N8N : synchronisation CRM, notifications, rapports automatiques, connexion entre outils métier.</p>
+        </div>
+
+        <div class="mission">
+            <h4>5. Intégration IA dans les projets</h4>
+            <p>Développement d'agents IA et chatbots, intégration de LLM, génération de contenu assistée, automatisation SEO intelligente pour les clients.</p>
+        </div>
+
+        <div class="mission">
+            <h4>6. SEO & Stratégie de contenu</h4>
+            <p>Audit SEO technique, optimisation on-page, stratégie de contenu assistée par IA, suivi de performance et reporting.</p>
+        </div>
+    </div>
+
+    <!-- Compétences mobilisées -->
+    <div class="section">
+        <div class="section-title">Compétences mobilisées</div>
+        <div class="skills-list">
+            <span class="skill">Figma</span>
+            <span class="skill">Webflow</span>
+            <span class="skill">HTML/CSS/JS</span>
+            <span class="skill">WeWeb + Xano</span>
+            <span class="skill">Airtable</span>
+            <span class="skill">Make</span>
+            <span class="skill">N8N</span>
+            <span class="skill">Supabase</span>
+            <span class="skill">IA / LLM</span>
+            <span class="skill">SEO</span>
+            <span class="skill">Design System</span>
+            <span class="skill">RGAA</span>
+            <span class="skill">Agile</span>
+            <span class="skill">Git</span>
+            <span class="skill">PrestaShop (UX)</span>
+        </div>
+    </div>
+
+    <!-- Valeur ajoutée du candidat -->
+    <div class="section">
+        <div class="section-title">Valeur ajoutée du candidat</div>
+
+        <div class="stats-row">
+            <div class="stat-item">
+                <div class="value">+17</div>
+                <div class="label">ans d'expérience</div>
+            </div>
+            <div class="stat-item">
+                <div class="value">-50%</div>
+                <div class="label">temps chargement<br>(Total Energies)</div>
+            </div>
+            <div class="stat-item">
+                <div class="value">-45%</div>
+                <div class="label">temps traitement<br>(Caisse des Dépôts)</div>
+            </div>
+            <div class="stat-item">
+                <div class="value">+30%</div>
+                <div class="label">contacts générés<br>(Palo IT)</div>
+            </div>
+        </div>
+
+        <div class="advantage">
+            <div class="advantage-check">✓</div>
+            <div>
+                <strong>Coût maîtrisé — ~1 347 €/mois net (PME)</strong>
+                <p>Aides cumulées : État + France Travail AFE (2 000 €) + OPCO tutorale (345 €/mois × 6 mois). Formation 100% OPCO. Pas de prime de précarité. ~1 692 €/mois après 6 mois.</p>
+            </div>
+        </div>
+        <div class="advantage">
+            <div class="advantage-check">✓</div>
+            <div>
+                <strong>Profil senior immédiatement opérationnel</strong>
+                <p>+17 ans en UX/UI chez Generali (10 ans), Total Energies, Caisse des Dépôts, Palo IT.</p>
+            </div>
+        </div>
+        <div class="advantage">
+            <div class="advantage-check">✓</div>
+            <div>
+                <strong>Double compétence Design + Tech</strong>
+                <p>UX/UI expert + développement NoCode/IA. Un profil polyvalent qui couvre toute la chaîne projet.</p>
+            </div>
+        </div>
+        <div class="advantage">
+            <div class="advantage-check">✓</div>
+            <div>
+                <strong>Proximité géographique</strong>
+                <p>Basé à Clisson/Boussay — même zone qu'ICC Digital. Intégration immédiate dans l'équipe.</p>
+            </div>
+        </div>
+        <div class="advantage">
+            <div class="advantage-check">✓</div>
+            <div>
+                <strong>Montée en compétences continue</strong>
+                <p>Formation Alegria couvrant IA, agents, RAG, LLM — nouvelles compétences chaque semaine pour vos projets.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modalités alternance -->
+    <div class="section">
+        <div class="section-title">Modalités de l'alternance</div>
+        <div class="alternance-box">
+            <div class="alternance-grid">
+                <div class="alternance-item">
+                    <strong>4 j/sem</strong>
+                    <span>En entreprise</span>
+                </div>
+                <div class="alternance-item">
+                    <strong>1 j/sem</strong>
+                    <span>En formation</span>
+                </div>
+                <div class="alternance-item">
+                    <strong>1 sem/trim</strong>
+                    <span>Session intensive</span>
+                </div>
+                <div class="alternance-item">
+                    <strong>12 mois</strong>
+                    <span>Sept 2026 — Sept 2027</span>
+                </div>
+            </div>
+        </div>
+        <p style="margin-top: 0.8rem; font-size: 0.9rem;">
+            <strong>Formation :</strong> Product Builder Low Code/No Code & IA — Alegria.academy<br>
+            <strong>Certification :</strong> Titre RNCP 37873 — Concepteur Développeur d'Application (Niveau 6 / BAC+4)
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p><strong>Nacim CHEMIL</strong> · nchemil@gmail.com · nchemil.vercel.app · Clisson / Boussay / Nantes</p>
+        <p style="margin-top: 0.3rem;">Disponible pour un échange téléphonique, visio ou en personne.</p>
+    </div>
+
+</body>
+</html>

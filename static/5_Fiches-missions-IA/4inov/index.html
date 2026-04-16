@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche de Mission — 4INOV × Nacim CHEMIL</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        :root {
+            --primary: #0a1628;
+            --accent: #00b4d8;
+            --accent-light: #48cae4;
+            --bg: #070d1a;
+            --bg-card: #0e1a30;
+            --bg-card-hover: #132240;
+            --text: #e0e8f0;
+            --text-muted: #8a9ab5;
+            --border: #1c2d4a;
+            --gradient: linear-gradient(135deg, #00b4d8, #0077b6);
+            --gradient-soft: linear-gradient(135deg, rgba(0,180,216,0.1), rgba(0,119,182,0.1));
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 2rem;
+            background: radial-gradient(ellipse at 30% 20%, rgba(0,180,216,0.06) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 80%, rgba(0,119,182,0.1) 0%, transparent 60%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: var(--gradient-soft);
+            border: 1px solid rgba(0,180,216,0.2);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff, #b0c4de);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            background: var(--gradient);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,180,216,0.3);
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-size: 1.05rem;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 3px;
+            margin-bottom: 2rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0,180,216,0.3);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--gradient-soft);
+            border: 1px solid rgba(0,180,216,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .context {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .context h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-light);
+        }
+
+        .context p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-tag {
+            padding: 0.4rem 1rem;
+            background: rgba(0,180,216,0.08);
+            border: 1px solid rgba(0,180,216,0.15);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--accent-light);
+            font-weight: 500;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 2px solid var(--bg);
+            transform: translateX(-5px);
+        }
+
+        .timeline-item h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+        }
+
+        .advantages-list {
+            list-style: none;
+        }
+
+        .advantages-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .advantages-list li:last-child { border-bottom: none; }
+
+        .check-icon {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(0,180,216,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-top: 0.1rem;
+        }
+
+        .advantage-content strong { display: block; margin-bottom: 0.2rem; }
+        .advantage-content p { color: var(--text-muted); font-size: 0.9rem; }
+
+        .cta-section {
+            text-align: center;
+            padding: 5rem 2rem;
+            background: radial-gradient(ellipse at center, rgba(0,180,216,0.06) 0%, transparent 70%);
+        }
+
+        .cta-section h2 { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
+        .cta-section p { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 0.9rem 2rem;
+            background: var(--gradient);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,180,216,0.3);
+        }
+
+        .btn-secondary {
+            padding: 0.9rem 2rem;
+            background: transparent;
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            transition: border-color 0.2s;
+        }
+
+        .btn-secondary:hover { border-color: var(--accent); }
+
+        .alternance-box {
+            background: linear-gradient(135deg, rgba(0,180,216,0.05), rgba(0,119,182,0.08));
+            border: 1px solid rgba(0,180,216,0.15);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .alternance-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-light);
+        }
+
+        .alternance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .alternance-item { text-align: center; }
+        .alternance-item strong { display: block; font-size: 1.1rem; margin-bottom: 0.3rem; }
+        .alternance-item span { color: var(--text-muted); font-size: 0.9rem; }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+        }
+
+        footer a { color: var(--accent-light); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .section { padding: 3rem 1.5rem; }
+            .context { padding: 2rem; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media print {
+            body { background: #fff; color: #0a1628; }
+            .hero { min-height: auto; padding: 2rem; background: none; }
+            .hero h1 { background: none; -webkit-text-fill-color: #0a1628; color: #0a1628; }
+            .card, .context, .stat, .alternance-box { border-color: #ddd; background: #f0f7fa; }
+            .section { padding: 2rem 0; }
+            .hero-cta, .cta-section { display: none; }
+            .stat-value { background: none; -webkit-text-fill-color: #00b4d8; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">Proposition de collaboration — Contrat de Professionnalisation</div>
+            <h1>Un Product Builder IA<br>pour <span>4INOV</span></h1>
+            <p class="hero-subtitle">
+                +17 ans d'expérience en UX/UI Design, une expertise NoCode & IA en pleine expansion,
+                au service de votre transformation digitale industrielle.
+            </p>
+            <a href="mailto:nchemil@gmail.com" class="hero-cta">
+                Échangeons ensemble &rarr;
+            </a>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Pourquoi 4INOV ?</h2>
+        <p class="section-subtitle">L'industrie digitale durable mérite des interfaces à la hauteur de sa complexité.</p>
+
+        <div class="context">
+            <h3>Votre ADN</h3>
+            <p>
+                4INOV est spécialisée dans la transformation numérique industrielle et les solutions Industry 4.0.
+                Vos logiciels MES (Manufacturing Execution System) personnalisables constituent le « système nerveux numérique »
+                de vos clients industriels : gestion des ressources, ordonnancement, traçabilité, qualité, analyse de performance
+                et dématérialisation documentaire. Vous accompagnez des entreprises comme André Renault, DEYA, COMAT et MDP
+                dans le remplacement de processus papier et Excel par des solutions digitales performantes.
+            </p>
+        </div>
+
+        <div class="context">
+            <h3>Ce que je peux vous apporter</h3>
+            <p>
+                Fort de 17 ans d'expérience en UX/UI dans des environnements complexes (SI d'assurance chez Generali,
+                portails RH Caisse des Dépôts, parcours recharge VE chez Total Energies), je comprends la conception
+                d'interfaces pour des systèmes métier critiques. Ma reconversion vers le Product Building IA/NoCode
+                me permet de combiner expertise ergonomique et capacité de développement rapide — exactement ce dont
+                un éditeur de logiciels MES a besoin pour accélérer l'évolution de ses produits.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Missions proposées</h2>
+        <p class="section-subtitle">Des missions concrètes pour renforcer vos produits MES et accélérer votre développement.</p>
+
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">🏭</div>
+                <h3>Refonte UX des interfaces MES</h3>
+                <p>Audit ergonomique et redesign des interfaces de vos logiciels MES : tableaux de bord de production, formulaires de saisie, écrans de traçabilité. Simplification des parcours opérateurs.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>Dashboards de performance industrielle</h3>
+                <p>Conception et développement de tableaux de bord interactifs pour visualiser les KPIs de production : TRS, taux de qualité, rendement, temps de cycle. Interfaces claires et exploitables.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🔧</div>
+                <h3>Applications métier NoCode</h3>
+                <p>Développement rapide d'applications complémentaires en WeWeb + Xano : gestion des non-conformités, suivi de maintenance, portails client, outils de reporting personnalisés.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>Automatisation de processus</h3>
+                <p>Création de workflows automatisés via Make et N8N : synchronisation données entre MES et ERP, alertes qualité, rapports automatiques, connexion avec outils tiers.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🤖</div>
+                <h3>Intégration IA dans le MES</h3>
+                <p>Exploration de cas d'usage IA : maintenance prédictive, détection d'anomalies de production, assistant IA pour les opérateurs, analyse automatisée des données qualité.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🌐</div>
+                <h3>Site web & présence digitale</h3>
+                <p>Refonte du site vitrine sous Webflow, création de landing pages pour vos solutions, optimisation SEO, production de contenus techniques pour améliorer votre visibilité.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Profil du candidat</h2>
+        <p class="section-subtitle">Nacim CHEMIL — UX/UI Designer IA & NoCode</p>
+
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="stat-value">+17</div>
+                <div class="stat-label">Années d'expérience</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">-50%</div>
+                <div class="stat-label">Temps lancement recharge VE<br>(Total Energies)</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">-45%</div>
+                <div class="stat-label">Temps de traitement RH<br>(Caisse des Dépôts)</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">500</div>
+                <div class="stat-label">Boutiques virtuelles refondues<br>(Generali)</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem;">
+            <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Expériences clés</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Total Energies — UX/UI Designer</h4>
+                    <p>Refonte du parcours recharge véhicule électrique (+200 écrans), design system RGAA, réduction de 50% du temps de lancement.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Caisse des Dépôts — UX/UI Designer</h4>
+                    <p>Refonte du portail RH, réduction de 45% du temps de traitement des demandes.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Generali — UX/UI Designer (10 ans)</h4>
+                    <p>Refonte UI web de 500 boutiques virtuelles, -50% temps de chargement, -72h délai de transaction.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Palo IT — UX/UI Designer</h4>
+                    <p>Refonte CRM Joozy, augmentation de 30% des nouveaux contacts.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 2rem;">
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Compétences techniques</h3>
+            <div class="skills-container">
+                <span class="skill-tag">Figma</span>
+                <span class="skill-tag">Webflow</span>
+                <span class="skill-tag">HTML / CSS / JS</span>
+                <span class="skill-tag">WeWeb + Xano</span>
+                <span class="skill-tag">Airtable</span>
+                <span class="skill-tag">Make</span>
+                <span class="skill-tag">N8N</span>
+                <span class="skill-tag">Supabase</span>
+                <span class="skill-tag">Flutterflow</span>
+                <span class="skill-tag">IA / LLM / RAG</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Merise / UML</span>
+                <span class="skill-tag">Design System</span>
+                <span class="skill-tag">RGAA</span>
+                <span class="skill-tag">Agile</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Pourquoi ce partenariat ?</h2>
+        <p class="section-subtitle">Un investissement stratégique pour votre croissance produit.</p>
+
+        <ul class="advantages-list">
+            <li>
+                <div class="check-icon">✓</div>
+                <div class="advantage-content">
+                    <strong>Coût maîtrisé — ~1 347 €/mois net (PME)</strong>
+                    <p>Grâce aux aides cumulées (État + France Travail AFE 2 000 € + OPCO tutorale 345 €/mois × 6 mois), le coût net est de ~1 347 €/mois les 6 premiers mois, puis ~1 692 €. Formation 100% OPCO. Pas de prime de précarité (économie >2 100 €).</p>
+                </div>
+            </li>
+            <li>
+                <div class="check-icon">✓</div>
+                <div class="advantage-content">
+                    <strong>Expert en interfaces complexes</strong>
+                    <p>10 ans chez Generali sur des SI d'assurance complexes. Habitué à concevoir des interfaces pour des systèmes métier critiques — comme le MES.</p>
+                </div>
+            </li>
+            <li>
+                <div class="check-icon">✓</div>
+                <div class="advantage-content">
+                    <strong>Développement rapide NoCode</strong>
+                    <p>WeWeb + Xano pour prototyper et déployer des applications métier en quelques jours au lieu de semaines.</p>
+                </div>
+            </li>
+            <li>
+                <div class="check-icon">✓</div>
+                <div class="advantage-content">
+                    <strong>Compétences IA immédiatement applicables</strong>
+                    <p>Formation continue sur les agents IA, RAG et LLM. Capacité à explorer l'intégration IA dans vos produits industriels.</p>
+                </div>
+            </li>
+            <li>
+                <div class="check-icon">✓</div>
+                <div class="advantage-content">
+                    <strong>Ancrage Pays de la Loire</strong>
+                    <p>Basé à Clisson/Boussay, dans votre écosystème régional. Proximité avec vos partenaires PROXINNOV et ADN Ouest.</p>
+                </div>
+            </li>
+            <li>
+                <div class="check-icon">✓</div>
+                <div class="advantage-content">
+                    <strong>Résultats prouvés et mesurables</strong>
+                    <p>Chaque mission précédente a produit des résultats quantifiables. Même approche orientée KPIs pour vos projets.</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Modalités de l'alternance</h2>
+        <p class="section-subtitle">Formation Alegria.academy — Titre RNCP 37873, Niveau 6 (BAC+4)</p>
+
+        <div class="alternance-box">
+            <h3>Organisation pratique</h3>
+            <div class="alternance-grid">
+                <div class="alternance-item">
+                    <strong>4 jours / semaine</strong>
+                    <span>En entreprise chez 4INOV</span>
+                </div>
+                <div class="alternance-item">
+                    <strong>1 jour / semaine</strong>
+                    <span>En formation à distance</span>
+                </div>
+                <div class="alternance-item">
+                    <strong>1 semaine / trimestre</strong>
+                    <span>Session intensive de formation</span>
+                </div>
+                <div class="alternance-item">
+                    <strong>12 mois</strong>
+                    <span>Durée du contrat (sept. 2026 — sept. 2027)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="alternance-box" style="margin-top: 1.5rem;">
+            <h3>Programme de formation</h3>
+            <div class="timeline" style="margin-top: 1rem;">
+                <div class="timeline-item">
+                    <h4>Bloc 1 — Développer une application sécurisée (Bootcamp, mai-août 2026)</h4>
+                    <p>Figma, Airtable, Make, WeWeb, Xano, Webflow, HTML/CSS/JS, IA générative, design thinking.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Bloc 2 — Concevoir une application en couches (Alternance)</h4>
+                    <p>Airtable avancé, Merise/UML, WeWeb & Xano Expert, Flutterflow, Supabase, tests et sécurité.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Bloc 3 — Préparer le déploiement (Alternance)</h4>
+                    <p>Make avancé, N8N, LM Studio (LLM), Stripe, Power Platform, CI/CD, monitoring.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Prêt à en discuter ?</h2>
+        <p>Rencontrons-nous pour explorer cette collaboration.<br>Disponible pour un échange téléphonique, visio ou en personne.</p>
+        <div class="cta-buttons">
+            <a href="mailto:nchemil@gmail.com" class="btn-primary">Contactez-moi par email</a>
+            <a href="https://nchemil.vercel.app" target="_blank" class="btn-secondary">Voir mon portfolio</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>Nacim CHEMIL — Product Builder IA & NoCode en devenir</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="mailto:nchemil@gmail.com">nchemil@gmail.com</a> ·
+            <a href="https://nchemil.vercel.app" target="_blank">nchemil.vercel.app</a> ·
+            Nantes / Clisson / Boussay
+        </p>
+    </footer>
+
+</body>
+</html>
