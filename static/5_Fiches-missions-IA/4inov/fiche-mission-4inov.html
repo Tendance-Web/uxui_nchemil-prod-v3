@@ -199,6 +199,18 @@
         }
 
         .footer a { color: var(--accent); text-decoration: none; }
+
+        /* PDF download CTA */
+        .pdf-cta{display:inline-flex;align-items:center;gap:.7rem;margin-top:.6rem;padding:.65rem 1.05rem;background:#fff;color:var(--accent);text-decoration:none;font-weight:600;font-size:.82rem;letter-spacing:.3px;border:1.5px solid var(--accent);border-radius:5px;transition:background .25s ease,color .25s ease,transform .25s ease,box-shadow .25s ease}
+        .pdf-cta:hover{background:var(--accent);color:#fff;transform:translateY(-1px);box-shadow:0 6px 16px -6px color-mix(in srgb,var(--accent) 55%,transparent)}
+        .pdf-cta .pdf-ico{display:grid;place-items:center;width:24px;height:24px;border-radius:4px;background:color-mix(in srgb,var(--accent) 12%,transparent);transition:background .25s ease}
+        .pdf-cta:hover .pdf-ico{background:rgba(255,255,255,.2)}
+        .pdf-cta .pdf-ico svg{width:13px;height:13px;stroke:currentColor}
+        .pdf-cta .pdf-txt{display:flex;flex-direction:column;line-height:1.1;text-align:left}
+        .pdf-cta .pdf-txt small{font-size:.6rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;opacity:.7;margin-bottom:2px}
+        .pdf-cta .pdf-arrow{transition:transform .25s ease;stroke:currentColor}
+        .pdf-cta:hover .pdf-arrow{transform:translate(2px,-2px)}
+        @media print{.pdf-cta{display:none!important}}
     </style>
 </head>
 <body>
@@ -313,6 +325,11 @@
             <div>
                 <strong>Coût maîtrisé — ~1 347 €/mois net (PME)</strong>
                 <p>Aides cumulées : État + France Travail AFE (2 000 €) + OPCO tutorale (345 €/mois × 6 mois). Formation 100% OPCO. Pas de prime de précarité. ~1 692 €/mois après 6 mois.</p>
+                <a class="pdf-cta" href="../../4_Cout-Alternant/Precisions-aides-alternance-2026.pdf" download target="_blank" rel="noopener">
+                    <span class="pdf-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg></span>
+                    <span class="pdf-txt"><small>PDF · Annexe</small>Détail des aides alternance 2026</span>
+                    <svg class="pdf-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                </a>
             </div>
         </div>
         <div class="advantage">
