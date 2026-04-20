@@ -8,199 +8,48 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
         :root {
-            --primary: #0a1628;
-            --accent: #00b4d8;
+            --primary: #085294;
+            --accent: #63b980;
+            --bg-light: #f0f7fa;
             --text: #2d2d3a;
             --text-light: #6b6b80;
             --bg: #ffffff;
-            --bg-light: #f0f7fa;
             --border: #dde8ef;
+            --font-display: 'Inter', -apple-system, sans-serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
         }
-
         @page { size: A4; margin: 15mm 18mm; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            color: var(--text);
-            line-height: 1.6;
-            font-size: 10.5pt;
-            background: var(--bg);
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding-bottom: 1.2rem;
-            border-bottom: 3px solid var(--accent);
-            margin-bottom: 1.5rem;
-        }
-
-        .header-left h1 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: var(--primary);
-            line-height: 1.2;
-        }
-
+        body { font-family: var(--font-body); color: var(--text); line-height: 1.6; font-size: 10.5pt; background: var(--bg); }
+        h1, h4 { font-family: var(--font-display); }
+        .header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 1.2rem; border-bottom: 3px solid var(--accent); margin-bottom: 1.5rem; }
+        .header-left h1 { font-size: 1.6rem; font-weight: 800; color: var(--primary); line-height: 1.2; }
         .header-left h1 span { color: var(--accent); }
-
-        .header-left .subtitle {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            margin-top: 0.3rem;
-        }
-
-        .header-right {
-            text-align: right;
-            font-size: 0.85rem;
-            color: var(--text-light);
-        }
-
+        .header-left .subtitle { font-size: 0.95rem; color: var(--text-light); margin-top: 0.3rem; }
+        .header-right { text-align: right; font-size: 0.85rem; color: var(--text-light); }
         .header-right strong { color: var(--text); }
-
         .section { margin-bottom: 1.5rem; }
-
-        .section-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--primary);
-            padding-bottom: 0.4rem;
-            border-bottom: 2px solid var(--accent);
-            margin-bottom: 0.8rem;
-            display: inline-block;
-        }
-
+        .section-title { font-size: 1.05rem; font-weight: 700; color: var(--primary); padding-bottom: 0.4rem; border-bottom: 2px solid var(--accent); margin-bottom: 0.8rem; display: inline-block; }
         .section p { margin-bottom: 0.5rem; }
-
-        .mission {
-            background: var(--bg-light);
-            border-left: 3px solid var(--accent);
-            padding: 0.7rem 1rem;
-            margin-bottom: 0.6rem;
-            border-radius: 0 6px 6px 0;
-        }
-
-        .mission h4 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 0.2rem;
-            color: var(--primary);
-        }
-
-        .mission p {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin: 0;
-        }
-
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-top: 0.5rem;
-        }
-
-        .skill {
-            padding: 0.2rem 0.7rem;
-            background: rgba(0,180,216,0.08);
-            border: 1px solid rgba(0,180,216,0.2);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            color: var(--accent);
-            font-weight: 500;
-        }
-
-        .advantage {
-            display: flex;
-            gap: 0.6rem;
-            margin-bottom: 0.5rem;
-            align-items: flex-start;
-        }
-
-        .advantage-check {
-            flex-shrink: 0;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: var(--accent);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.65rem;
-            font-weight: 700;
-            margin-top: 0.15rem;
-        }
-
+        .mission { background: var(--bg-light); border-left: 3px solid var(--accent); padding: 0.7rem 1rem; margin-bottom: 0.6rem; border-radius: 0 6px 6px 0; }
+        .mission h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.2rem; color: var(--primary); }
+        .mission p { font-size: 0.9rem; color: var(--text-light); margin: 0; }
+        .skills-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
+        .skill { padding: 0.2rem 0.7rem; background: rgba(0,180,216,0.08); border: 1px solid rgba(0,180,216,0.2); border-radius: 20px; font-size: 0.8rem; color: var(--accent); font-weight: 500; }
+        .advantage { display: flex; gap: 0.6rem; margin-bottom: 0.5rem; align-items: flex-start; }
+        .advantage-check { flex-shrink: 0; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; margin-top: 0.15rem; }
         .advantage strong { font-size: 0.95rem; }
         .advantage p { font-size: 0.85rem; color: var(--text-light); margin: 0; }
-
-        .alternance-box {
-            background: var(--bg-light);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1rem 1.2rem;
-            margin-top: 0.5rem;
-        }
-
-        .alternance-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0.8rem;
-            text-align: center;
-        }
-
-        .alternance-item strong {
-            display: block;
-            font-size: 1rem;
-            color: var(--accent);
-        }
-
-        .alternance-item span {
-            font-size: 0.8rem;
-            color: var(--text-light);
-        }
-
-        .stats-row {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0.8rem;
-            margin: 1rem 0;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 0.6rem;
-            background: var(--bg-light);
-            border-radius: 8px;
-            border: 1px solid var(--border);
-        }
-
-        .stat-item .value {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--accent);
-        }
-
-        .stat-item .label {
-            font-size: 0.75rem;
-            color: var(--text-light);
-        }
-
-        .footer {
-            margin-top: 1.5rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-light);
-        }
-
+        .alternance-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; margin-top: 0.5rem; }
+        .alternance-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; text-align: center; }
+        .alternance-item strong { display: block; font-size: 1rem; color: var(--accent); }
+        .alternance-item span { font-size: 0.8rem; color: var(--text-light); }
+        .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; margin: 1rem 0; }
+        .stat-item { text-align: center; padding: 0.6rem; background: var(--bg-light); border-radius: 8px; border: 1px solid var(--border); }
+        .stat-item .value { font-size: 1.4rem; font-weight: 800; color: var(--accent); }
+        .stat-item .label { font-size: 0.75rem; color: var(--text-light); }
+        .footer { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); text-align: center; font-size: 0.85rem; color: var(--text-light); }
         .footer a { color: var(--accent); text-decoration: none; }
-
-        /* PDF download CTA */
         .pdf-cta{display:inline-flex;align-items:center;gap:.7rem;margin-top:.6rem;padding:.65rem 1.05rem;background:#fff;color:var(--accent);text-decoration:none;font-weight:600;font-size:.82rem;letter-spacing:.3px;border:1.5px solid var(--accent);border-radius:5px;transition:background .25s ease,color .25s ease,transform .25s ease,box-shadow .25s ease}
         .pdf-cta:hover{background:var(--accent);color:#fff;transform:translateY(-1px);box-shadow:0 6px 16px -6px color-mix(in srgb,var(--accent) 55%,transparent)}
         .pdf-cta .pdf-ico{display:grid;place-items:center;width:24px;height:24px;border-radius:4px;background:color-mix(in srgb,var(--accent) 12%,transparent);transition:background .25s ease}
@@ -211,10 +60,12 @@
         .pdf-cta .pdf-arrow{transition:transform .25s ease;stroke:currentColor}
         .pdf-cta:hover .pdf-arrow{transform:translate(2px,-2px)}
         @media print{.pdf-cta{display:none!important}}
+
+        /* Custom per-entreprise overrides */
+
     </style>
 </head>
 <body>
-
     <div class="header">
         <div class="header-left">
             <h1>Fiche de Mission<br><span>4INOV × Nacim CHEMIL</span></h1>
@@ -224,7 +75,7 @@
             <strong>Nacim CHEMIL</strong><br>
             nchemil@gmail.com<br>
             Clisson / Boussay / Nantes<br>
-            nchemil.vercel.app
+            <a href="http://nchemil.vercel.app/5_Fiches-missions-IA/4inov" target="_blank" rel="noopener">Lien fiche mission</a>
         </div>
     </div>
 
@@ -236,90 +87,35 @@
 
     <div class="section">
         <div class="section-title">Contexte — 4INOV</div>
-        <p>
-            <strong>4INOV</strong> est spécialisée dans la transformation numérique industrielle (Industry 4.0).
-            L'entreprise développe des logiciels MES (Manufacturing Execution System) personnalisables qui constituent
-            le « système nerveux numérique » de ses clients industriels : gestion des ressources, ordonnancement,
-            traçabilité, qualité, analyse de performance et dématérialisation documentaire.
-        </p>
-        <p>
-            L'intégration d'un Product Builder IA & NoCode permettrait à 4INOV d'accélérer le développement de ses
-            interfaces utilisateur MES, de créer des applications métier complémentaires en NoCode, et d'explorer
-            l'intégration de l'IA dans ses produits industriels — un levier de différenciation majeur sur le marché MES.
-        </p>
+        <p>4INOV édite des logiciels MES pour l'industrie : supervision production, traçabilité, qualité, maintenance. Ancrage régional fort (partenariats PROXINNOV, ADN Ouest).</p>
+        <p>17 ans UX/UI sur SI complexes (Generali, Total Energies). Habitué interfaces métier critiques comme MES. Reconversion Product Builder IA/NoCode via Alegria.academy (RNCP 37873). Capacité à prototyper et déployer applications métier en jours avec WeWeb+Xano.</p>
     </div>
 
     <div class="section">
         <div class="section-title">Missions détaillées</div>
-
-        <div class="mission">
-            <h4>1. Refonte UX des interfaces MES</h4>
-            <p>Audit ergonomique et redesign des interfaces : tableaux de bord de production, formulaires de saisie, écrans de traçabilité. Simplification des parcours opérateurs.</p>
-        </div>
-        <div class="mission">
-            <h4>2. Dashboards de performance industrielle</h4>
-            <p>Conception de tableaux de bord interactifs pour visualiser les KPIs de production : TRS, taux de qualité, rendement, temps de cycle.</p>
-        </div>
-        <div class="mission">
-            <h4>3. Applications métier complémentaires (NoCode)</h4>
-            <p>Développement rapide en WeWeb + Xano : gestion des non-conformités, suivi de maintenance, portails client, outils de reporting.</p>
-        </div>
-        <div class="mission">
-            <h4>4. Automatisation de processus</h4>
-            <p>Workflows via Make et N8N : synchronisation MES ↔ ERP, alertes qualité, rapports automatiques, connexion outils tiers.</p>
-        </div>
-        <div class="mission">
-            <h4>5. Intégration IA dans les produits</h4>
-            <p>Exploration de cas d'usage IA : maintenance prédictive, détection d'anomalies, assistant opérateur, analyse automatisée des données qualité.</p>
-        </div>
-        <div class="mission">
-            <h4>6. Site web & présence digitale</h4>
-            <p>Refonte site vitrine sous Webflow, landing pages produits, optimisation SEO, contenus techniques pour améliorer la visibilité.</p>
-        </div>
+        <div class="mission"><h4>1. Refonte UX des interfaces MES</h4><p>Audit ergonomique et redesign des interfaces MES : tableaux de bord production, formulaires saisie, écrans traçabilité. Simplification parcours opérateurs.</p></div>
+        <div class="mission"><h4>2. Dashboards de performance industrielle</h4><p>Tableaux de bord interactifs KPIs production : TRS, taux qualité, rendement, temps de cycle. Interfaces claires et exploitables.</p></div>
+        <div class="mission"><h4>3. Applications métier NoCode</h4><p>Développement rapide WeWeb + Xano : gestion non-conformités, suivi maintenance, portails client, outils reporting personnalisés.</p></div>
+        <div class="mission"><h4>4. Automatisation de processus</h4><p>Workflows Make et N8N : synchronisation MES/ERP, alertes qualité, rapports automatiques, connexion outils tiers.</p></div>
+        <div class="mission"><h4>5. Intégration IA dans le MES</h4><p>Cas d'usage IA : maintenance prédictive, détection anomalies production, assistant IA opérateurs, analyse automatisée qualité.</p></div>
+        <div class="mission"><h4>6. Site web & présence digitale</h4><p>Refonte site vitrine Webflow, landing pages solutions, optimisation SEO, contenus techniques pour visibilité.</p></div>
     </div>
 
     <div class="section">
         <div class="section-title">Compétences mobilisées</div>
         <div class="skills-list">
-            <span class="skill">Figma</span>
-            <span class="skill">Webflow</span>
-            <span class="skill">WeWeb + Xano</span>
-            <span class="skill">Airtable</span>
-            <span class="skill">Make</span>
-            <span class="skill">N8N</span>
-            <span class="skill">Supabase</span>
-            <span class="skill">IA / LLM / RAG</span>
-            <span class="skill">Merise / UML</span>
-            <span class="skill">Design System</span>
-            <span class="skill">RGAA</span>
-            <span class="skill">Flutterflow</span>
-            <span class="skill">Agile</span>
-            <span class="skill">Git</span>
+            <span class="skill">Figma</span><span class="skill">Webflow</span><span class="skill">WeWeb + Xano</span><span class="skill">Airtable</span><span class="skill">Make</span><span class="skill">N8N</span><span class="skill">Supabase</span><span class="skill">IA / LLM / RAG</span><span class="skill">Merise / UML</span><span class="skill">Design System</span><span class="skill">RGAA</span><span class="skill">Flutterflow</span><span class="skill">Agile</span><span class="skill">Git</span>
         </div>
     </div>
 
     <div class="section">
         <div class="section-title">Valeur ajoutée du candidat</div>
-
         <div class="stats-row">
-            <div class="stat-item">
-                <div class="value">+17</div>
-                <div class="label">ans d'expérience</div>
-            </div>
-            <div class="stat-item">
-                <div class="value">10 ans</div>
-                <div class="label">interfaces SI complexes<br>(Generali)</div>
-            </div>
-            <div class="stat-item">
-                <div class="value">-45%</div>
-                <div class="label">temps traitement<br>(Caisse des Dépôts)</div>
-            </div>
-            <div class="stat-item">
-                <div class="value">+200</div>
-                <div class="label">écrans conçus<br>(Total Energies)</div>
-            </div>
+            <div class="stat-item"><div class="value">+17</div><div class="label">ans d'expérience</div></div>
+            <div class="stat-item"><div class="value">10 ans</div><div class="label">interfaces SI complexes<br>(Generali)</div></div>
+            <div class="stat-item"><div class="value">-45%</div><div class="label">temps traitement<br>(Caisse des Dépôts)</div></div>
+            <div class="stat-item"><div class="value">+200</div><div class="label">écrans conçus<br>(Total Energies)</div></div>
         </div>
-
         <div class="advantage">
             <div class="advantage-check">✓</div>
             <div>
@@ -332,56 +128,20 @@
                 </a>
             </div>
         </div>
-        <div class="advantage">
-            <div class="advantage-check">✓</div>
-            <div>
-                <strong>Expert en interfaces métier complexes</strong>
-                <p>10 ans chez Generali sur des SI d'assurance (500 boutiques virtuelles). Habitué aux systèmes critiques comme le MES.</p>
-            </div>
-        </div>
-        <div class="advantage">
-            <div class="advantage-check">✓</div>
-            <div>
-                <strong>Prototypage rapide NoCode</strong>
-                <p>WeWeb + Xano pour développer des applications complémentaires en jours au lieu de semaines.</p>
-            </div>
-        </div>
-        <div class="advantage">
-            <div class="advantage-check">✓</div>
-            <div>
-                <strong>Compétences IA pour l'industrie</strong>
-                <p>Formation continue sur agents IA, RAG, LLM. Exploration de l'IA au service de la performance industrielle.</p>
-            </div>
-        </div>
-        <div class="advantage">
-            <div class="advantage-check">✓</div>
-            <div>
-                <strong>Ancrage Pays de la Loire</strong>
-                <p>Basé à Clisson/Boussay, dans votre écosystème régional avec PROXINNOV et ADN Ouest.</p>
-            </div>
-        </div>
+        <div class="advantage"><div class="advantage-check">✓</div><div><strong>Un profil senior, pas un débutant</strong><p>+17 ans d'expérience UX/UI Design dans de grands groupes. Immédiatement opérationnel et autonome.</p></div></div>
+        <div class="advantage"><div class="advantage-check">✓</div><div><strong>Double compétence Design + Technique</strong><p>Rare combinaison UX/UI et NoCode/IA. Un seul profil pour couvrir design, développement et automatisation.</p></div></div>
+        <div class="advantage"><div class="advantage-check">✓</div><div><strong>Résultats mesurables prouvés</strong><p>KPIs concrets : -50% temps de chargement, -45% temps de traitement, +30% contacts.</p></div></div>
+        <div class="advantage"><div class="advantage-check">✓</div><div><strong>Ancrage Pays de la Loire</strong><p>Basé à Clisson/Boussay, dans votre écosystème régional. Proximité avec vos partenaires PROXINNOV et ADN Ouest.</p></div></div>
     </div>
 
     <div class="section">
         <div class="section-title">Modalités de l'alternance</div>
         <div class="alternance-box">
             <div class="alternance-grid">
-                <div class="alternance-item">
-                    <strong>4 j/sem</strong>
-                    <span>En entreprise</span>
-                </div>
-                <div class="alternance-item">
-                    <strong>1 j/sem</strong>
-                    <span>En formation</span>
-                </div>
-                <div class="alternance-item">
-                    <strong>1 sem/trim</strong>
-                    <span>Session intensive</span>
-                </div>
-                <div class="alternance-item">
-                    <strong>12 mois</strong>
-                    <span>Sept 2026 — Sept 2027</span>
-                </div>
+                <div class="alternance-item"><strong>4 j/sem</strong><span>En entreprise</span></div>
+                <div class="alternance-item"><strong>1 j/sem</strong><span>En formation</span></div>
+                <div class="alternance-item"><strong>1 sem/trim</strong><span>Session intensive</span></div>
+                <div class="alternance-item"><strong>12 mois</strong><span>Sept 2026 — Sept 2027</span></div>
             </div>
         </div>
         <p style="margin-top: 0.8rem; font-size: 0.9rem;">
@@ -391,9 +151,8 @@
     </div>
 
     <div class="footer">
-        <p><strong>Nacim CHEMIL</strong> · nchemil@gmail.com · nchemil.vercel.app · Clisson / Boussay / Nantes</p>
+        <p><strong>Nacim CHEMIL</strong> · nchemil@gmail.com · <a href="http://nchemil.vercel.app/5_Fiches-missions-IA/4inov" target="_blank" rel="noopener">Lien fiche mission</a> · Clisson / Boussay / Nantes</p>
         <p style="margin-top: 0.3rem;">Disponible pour un échange téléphonique, visio ou en personne.</p>
     </div>
-
 </body>
 </html>
