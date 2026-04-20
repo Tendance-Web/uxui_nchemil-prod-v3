@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche de Mission — XMCO × Nacim CHEMIL</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary: #00205b;
+            --accent: #00a9ce;
+            --bg-light: #f4f9fc;
+            --text: #2d2d3a;
+            --text-light: #6b6b80;
+            --bg: #ffffff;
+            --border: #dde8ef;
+            --font-display: 'Inter', -apple-system, sans-serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+        }
+
+        @page {
+            size: A4;
+            margin: 15mm 18mm;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 10.5pt;
+            background: var(--bg);
+        }
+
+        h1,
+        h4 {
+            font-family: var(--font-display);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 1.2rem;
+            border-bottom: 3px solid var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .header-left h1 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .header-left h1 span {
+            color: var(--accent);
+        }
+
+        .header-left .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-top: 0.3rem;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .header-right strong {
+            color: var(--text);
+        }
+
+        .section {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid var(--accent);
+            margin-bottom: 0.8rem;
+            display: inline-block;
+        }
+
+        .section p {
+            margin-bottom: 0.5rem;
+        }
+
+        .mission {
+            background: var(--bg-light);
+            border-left: 3px solid var(--accent);
+            padding: 0.7rem 1rem;
+            margin-bottom: 0.6rem;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .mission h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            color: var(--primary);
+        }
+
+        .mission p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.5rem;
+        }
+
+        .skill {
+            padding: 0.2rem 0.7rem;
+            background: rgba(0, 169, 206, 0.08);
+            border: 1px solid rgba(0, 169, 206, 0.2);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .advantage {
+            display: flex;
+            gap: 0.6rem;
+            margin-bottom: 0.5rem;
+            align-items: flex-start;
+        }
+
+        .advantage-check {
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 700;
+            margin-top: 0.15rem;
+        }
+
+        .advantage strong {
+            font-size: 0.95rem;
+        }
+
+        .advantage p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .alternance-box {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .alternance-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.8rem;
+            text-align: center;
+        }
+
+        .alternance-item strong {
+            display: block;
+            font-size: 1rem;
+            color: var(--accent);
+        }
+
+        .alternance-item span {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 0.6rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .stat-item .value {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .stat-item .label {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        .footer {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .pdf-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: .7rem;
+            margin-top: .6rem;
+            padding: .65rem 1.05rem;
+            background: #fff;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: .82rem;
+            letter-spacing: .3px;
+            border: 1.5px solid var(--accent);
+            border-radius: 5px;
+            transition: background .25s ease, color .25s ease, transform .25s ease, box-shadow .25s ease
+        }
+
+        .pdf-cta:hover {
+            background: var(--accent);
+            color: #fff;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px -6px color-mix(in srgb, var(--accent) 55%, transparent)
+        }
+
+        .pdf-cta .pdf-ico {
+            display: grid;
+            place-items: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            background: color-mix(in srgb, var(--accent) 12%, transparent);
+            transition: background .25s ease
+        }
+
+        .pdf-cta:hover .pdf-ico {
+            background: rgba(255, 255, 255, .2)
+        }
+
+        .pdf-cta .pdf-ico svg {
+            width: 13px;
+            height: 13px;
+            stroke: currentColor
+        }
+
+        .pdf-cta .pdf-txt {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+            text-align: left
+        }
+
+        .pdf-cta .pdf-txt small {
+            font-size: .6rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: .7;
+            margin-bottom: 2px
+        }
+
+        .pdf-cta .pdf-arrow {
+            transition: transform .25s ease;
+            stroke: currentColor
+        }
+
+        .pdf-cta:hover .pdf-arrow {
+            transform: translate(2px, -2px)
+        }
+
+        @media print {
+            .pdf-cta {
+                display: none !important
+            }
+        }
+
+        /* Custom per-entreprise overrides */
+        :root {
+            --font-display: 'Archivo', system-ui, sans-serif;
+            --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+            --orange: #f97316;
+        }
+
+        body {
+            background: var(--bg);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 {
+            font-weight: 900;
+            background: linear-gradient(135deg, #00205b 0%, #00a9ce 55%, #f97316 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero {
+            background: radial-gradient(ellipse at 20% 10%, rgba(0, 169, 206, 0.10) 0%, transparent 55%), radial-gradient(ellipse at 80% 90%, rgba(249, 115, 22, 0.10) 0%, transparent 55%), #fafafa;
+        }
+
+        .hero::before {
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20h40M20 0v40' stroke='%2300205b' stroke-width='0.5' opacity='0.08'/%3E%3C/svg%3E");
+            opacity: 1;
+        }
+
+        .badge {
+            background: rgba(249, 115, 22, 0.1);
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            color: #c2410c;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            border-radius: 4px;
+        }
+
+        .hero-subtitle {
+            color: #3a3a4a;
+            font-size: 1.2rem;
+        }
+
+        .hero-cta {
+            background: #00205b;
+            border-radius: 4px;
+            font-weight: 600;
+            box-shadow: 0 12px 40px -12px rgba(0, 32, 91, 0.45);
+        }
+
+        .hero-cta:hover {
+            background: #00a9ce;
+            box-shadow: 0 16px 44px -10px rgba(0, 169, 206, 0.5);
+        }
+
+        .section-title {
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            color: #0a0a0a;
+        }
+
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(90deg, #00205b, #00a9ce, #f97316);
+            border-radius: 0;
+            width: 56px;
+        }
+
+        .context {
+            background: #ffffff;
+            border: 1px solid #e5e5ea;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 32, 91, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .context::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #00205b, #f97316);
+        }
+
+        .context h3 {
+            color: #00205b;
+            font-weight: 700;
+        }
+
+        .context p {
+            color: #3a3a4a;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e5e5ea;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 32, 91, 0.05);
+            transition: all 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(0, 169, 206, 0.45);
+            box-shadow: 0 12px 32px -8px rgba(0, 32, 91, 0.15);
+        }
+
+        .card-icon {
+            background: linear-gradient(135deg, rgba(0, 169, 206, 0.1), rgba(249, 115, 22, 0.1));
+            border: 1px solid rgba(0, 169, 206, 0.2);
+            border-radius: 6px;
+        }
+
+        .card h3 {
+            color: #0a0a0a;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: #3a3a4a;
+        }
+
+        .skill-tag {
+            background: #f5f5f7;
+            border: 1px solid #e5e5ea;
+            color: #00205b;
+            font-weight: 500;
+            border-radius: 3px;
+            padding: 0.35rem 0.8rem;
+            font-size: 0.8rem;
+        }
+
+        .stat {
+            background: #ffffff;
+            border: 1px solid #e5e5ea;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 32, 91, 0.05);
+        }
+
+        .stat-value {
+            background: linear-gradient(135deg, #00205b, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+        }
+
+        .stat-label {
+            color: #5a5a6e;
+        }
+
+        .timeline::before {
+            background: #e5e5ea;
+        }
+
+        .timeline-item::before {
+            background: #f97316;
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+        }
+
+        .timeline-item h4 {
+            color: #00205b;
+            font-weight: 700;
+        }
+
+        .timeline-item p {
+            color: #3a3a4a;
+        }
+
+        .advantages-list li {
+            border-bottom: 1px solid #e5e5ea;
+        }
+
+        .check-icon {
+            background: #00205b;
+            color: #ffffff;
+            font-weight: 800;
+        }
+
+        .advantage-content strong {
+            color: #0a0a0a;
+            font-weight: 700;
+        }
+
+        .advantage-content p {
+            color: #3a3a4a;
+        }
+
+        .alternance-box {
+            background: linear-gradient(135deg, rgba(0, 169, 206, 0.05), rgba(249, 115, 22, 0.05));
+            border: 1px solid rgba(0, 169, 206, 0.18);
+            border-radius: 8px;
+        }
+
+        .alternance-box h3 {
+            color: #00205b;
+            font-weight: 700;
+        }
+
+        .alternance-item strong {
+            color: #00205b;
+            font-weight: 700;
+        }
+
+        .alternance-item span {
+            color: #5a5a6e;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, rgba(0, 169, 206, 0.05), rgba(249, 115, 22, 0.07));
+        }
+
+        .cta-section h2 {
+            color: #0a0a0a;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
+
+        .btn-primary {
+            background: #00205b;
+            border-radius: 4px;
+            box-shadow: 0 12px 32px -12px rgba(0, 32, 91, 0.45);
+        }
+
+        .btn-primary:hover {
+            background: #00a9ce;
+        }
+
+        .btn-secondary {
+            color: #0a0a0a;
+            border-color: #d4d4d8;
+            border-radius: 4px;
+        }
+
+        .btn-secondary:hover {
+            border-color: #00205b;
+            color: #00205b;
+        }
+
+        footer {
+            border-top: 1px solid #e5e5ea;
+            color: #5a5a6e;
+            background: #f5f5f7;
+        }
+
+        footer a {
+            color: #00205b;
+        }
+
+        .sticky-nav {
+            background: rgba(255, 255, 255, 0.88);
+            border-bottom: 1px solid #e5e5ea;
+        }
+
+        .nav-brand {
+            color: #0a0a0a;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-brand-dot {
+            background: #f97316;
+            box-shadow: 0 0 10px rgba(249, 115, 22, 0.6);
+        }
+
+        .nav-links a {
+            color: #5a5a6e;
+        }
+
+        .nav-links a:hover {
+            color: #00205b;
+            background: rgba(0, 169, 206, 0.1);
+        }
+
+        .nav-links a.is-active {
+            color: #00205b;
+            background: rgba(249, 115, 22, 0.12);
+            box-shadow: inset 0 0 0 1px rgba(249, 115, 22, 0.35);
+        }
+
+        .nav-cta {
+            background: #f97316;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .nav-cta:hover {
+            background: #ea580c;
+        }
+
+        .pdf-cta {
+            background: #ffffff;
+            color: #00205b;
+            border: 1.5px solid #00205b;
+            box-shadow: none;
+            border-radius: 4px;
+        }
+
+        .pdf-cta::before {
+            display: none;
+        }
+
+        .pdf-cta:hover {
+            background: #00205b;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .pdf-cta .pdf-ico {
+            background: rgba(0, 32, 91, 0.08);
+        }
+
+        .pdf-cta:hover .pdf-ico {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-left">
+            <h1>Fiche de Mission<br><span>XMCO × Nacim CHEMIL</span></h1>
+            <div class="subtitle">Product Builder IA & NoCode — Contrat de Professionnalisation</div>
+        </div>
+        <div class="header-right">
+            <strong>Nacim CHEMIL</strong><br>
+            nchemil@gmail.com<br>
+            Clisson / Boussay / Nantes<br>
+            <a href="./" target="_blank" rel="noopener">Lien fiche mission</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Intitulé du poste</div>
+        <p><strong>Product Builder IA & NoCode</strong> — Alternance 12 mois (septembre 2026 — septembre 2027)</p>
+        <p>Formation : Alegria.academy — Titre RNCP 37873 « Concepteur Développeur d'Application » (Niveau 6 / BAC+4)
+        </p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Contexte — XMCO</div>
+        <p>Fondé en 2002, XMCO est le cabinet français souverain de référence en cybersécurité : audits, pentests, Red
+            Team, CERT-XMCO reconnu par organismes gouvernementaux, Cyber Threat Intelligence, offres YUNO® et Serenety
+            (CTEM). 120 collaborateurs (8 ans d'ancienneté moyenne), 700 missions d'audit/an, 450+ clients actifs (>50%
+            du CAC40 et SBF120). Certifications PASSI, QSA, CAIH, UGAP. Agences Paris, Nantes, Labège.</p>
+        <p>17 ans UX/UI sur SI critiques et régulés (Generali assurance, Caisse des Dépôts, Total Energies).
+            Reconversion Product Builder IA/NoCode via Alegria.academy (RNCP 37873). Double profil design + technique
+            pour moderniser portails clients, dashboards CTI/CERT, automatiser processus d'audit et intégrer IA dans la
+            veille sécurité — sans toucher au cœur technique assuré par vos experts.</p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Missions détaillées</div>
+        <div class="mission">
+            <h4>1. Portail client sécurisé</h4>
+            <p>Espace client unifié : suivi missions d'audit, livrables pentests, état des vulnérabilités, planning Red
+                Team. WeWeb + Xano ou Supabase avec auth renforcée.</p>
+        </div>
+        <div class="mission">
+            <h4>2. Dashboards CTI & CERT</h4>
+            <p>Visualisation Cyber Threat Intelligence : alertes, IOCs, tendances menaces, indicateurs CERT-XMCO.
+                Interfaces claires pour analystes et clients.</p>
+        </div>
+        <div class="mission">
+            <h4>3. Automatisation processus audit</h4>
+            <p>Workflows Make / N8N : génération rapports standardisés, suivi remédiation, notifications clients,
+                reporting conformité PCI-DSS / PASSI.</p>
+        </div>
+        <div class="mission">
+            <h4>4. IA appliquée à la veille sécurité</h4>
+            <p>Agents IA (RAG + LLM) pour enrichir YUNO® : résumé bulletins, classification IOCs, assistance analystes
+                CTI. Données clients jamais exposées.</p>
+        </div>
+        <div class="mission">
+            <h4>5. Design UX des livrables & rapports</h4>
+            <p>Refonte templates rapports d'audit et pentests : hiérarchie information, schémas attaque, lisibilité
+                exécutive. Design system XMCO cohérent.</p>
+        </div>
+        <div class="mission">
+            <h4>6. Landing pages offres (YUNO, Serenety)</h4>
+            <p>Pages Webflow dédiées par offre : pédagogie CTEM, démo produit, conversion leads. SEO cybersécurité et
+                contenu technique.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Compétences mobilisées</div>
+        <div class="skills-list">
+            <span class="skill">Figma</span><span class="skill">Webflow</span><span class="skill">WeWeb +
+                Xano</span><span class="skill">Airtable</span><span class="skill">Make</span><span
+                class="skill">N8N</span><span class="skill">Supabase</span><span class="skill">IA / LLM /
+                RAG</span><span class="skill">Merise / UML</span><span class="skill">Design System</span><span
+                class="skill">RGAA</span><span class="skill">Flutterflow</span><span class="skill">Agile</span><span
+                class="skill">Git</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Valeur ajoutée du candidat</div>
+        <div class="stats-row">
+            <div class="stat-item">
+                <div class="value">+17</div>
+                <div class="label">ans d'expérience</div>
+            </div>
+            <div class="stat-item">
+                <div class="value">10 ans</div>
+                <div class="label">interfaces SI complexes<br>(Generali)</div>
+            </div>
+            <div class="stat-item">
+                <div class="value">-45%</div>
+                <div class="label">temps traitement<br>(Caisse des Dépôts)</div>
+            </div>
+            <div class="stat-item">
+                <div class="value">+200</div>
+                <div class="label">écrans conçus<br>(Total Energies)</div>
+            </div>
+        </div>
+        <div class="advantage">
+            <div class="advantage-check">✓</div>
+            <div>
+                <strong>Coût maîtrisé — ~1 347 €/mois net (PME)</strong>
+                <p>Aides cumulées : État + France Travail AFE (2 000 €) + OPCO tutorale (345 €/mois × 6 mois). Formation
+                    100% OPCO. Pas de prime de précarité. ~1 692 €/mois après 6 mois.</p>
+                <a class="pdf-cta" href="../../4_Cout-Alternant/Precisions-aides-alternance-2026.pdf" download
+                    target="_blank" rel="noopener">
+                    <span class="pdf-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+                            <path d="M14 3v6h6" />
+                        </svg></span>
+                    <span class="pdf-txt"><small>PDF · Annexe</small>Détail des aides alternance 2026</span>
+                    <svg class="pdf-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M7 17 17 7" />
+                        <path d="M7 7h10v10" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="advantage">
+            <div class="advantage-check">✓</div>
+            <div><strong>Un profil senior, pas un débutant</strong>
+                <p>+17 ans d'expérience UX/UI Design dans de grands groupes. Immédiatement opérationnel et autonome.</p>
+            </div>
+        </div>
+        <div class="advantage">
+            <div class="advantage-check">✓</div>
+            <div><strong>Double compétence Design + Technique</strong>
+                <p>Rare combinaison UX/UI et NoCode/IA. Un seul profil pour couvrir design, développement et
+                    automatisation.</p>
+            </div>
+        </div>
+        <div class="advantage">
+            <div class="advantage-check">✓</div>
+            <div><strong>Résultats mesurables prouvés</strong>
+                <p>KPIs concrets : -50% temps de chargement, -45% temps de traitement, +30% contacts.</p>
+            </div>
+        </div>
+        <div class="advantage">
+            <div class="advantage-check">✓</div>
+            <div><strong>Agence Nantes à portée</strong>
+                <p>Basé à Clisson/Boussay, à 30 min Nantes Gare. Présence hybride possible, intégration fluide avec
+                    équipes Paris et Labège via outils collaboratifs.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Modalités de l'alternance</div>
+        <div class="alternance-box">
+            <div class="alternance-grid">
+                <div class="alternance-item"><strong>4 j/sem</strong><span>En entreprise</span></div>
+                <div class="alternance-item"><strong>1 j/sem</strong><span>En formation</span></div>
+                <div class="alternance-item"><strong>1 sem/trim</strong><span>Session intensive</span></div>
+                <div class="alternance-item"><strong>12 mois</strong><span>Sept 2026 — Sept 2027</span></div>
+            </div>
+        </div>
+        <p style="margin-top: 0.8rem; font-size: 0.9rem;">
+            <strong>Formation :</strong> Product Builder Low Code/No Code & IA — Alegria.academy<br>
+            <strong>Certification :</strong> Titre RNCP 37873 — Concepteur Développeur d'Application (Niveau 6 / BAC+4)
+        </p>
+    </div>
+
+    <div class="footer">
+        <p><strong>Nacim CHEMIL</strong> · nchemil@gmail.com · <a href="./" target="_blank" rel="noopener">Lien fiche
+                mission</a> · Clisson / Boussay / Nantes</p>
+        <p style="margin-top: 0.3rem;">Disponible pour un échange téléphonique, visio ou en personne.</p>
+    </div>
+</body>
+
+</html>
