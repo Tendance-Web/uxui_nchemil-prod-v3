@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche de Mission — Akeneo × Nacim CHEMIL</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        :root {
+            --primary: #230052;
+            --accent: #994AFF;
+            --bg-light: #f5efff;
+            --text: #2d2d3a;
+            --text-light: #6b6b80;
+            --bg: #ffffff;
+            --border: #dde8ef;
+            --font-display: 'Inter', -apple-system, sans-serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+        }
+        @page { size: A4; margin: 15mm 18mm; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); color: var(--text); line-height: 1.6; font-size: 10.5pt; background: var(--bg); }
+        h1, h4 { font-family: var(--font-display); }
+        .header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 1.2rem; border-bottom: 3px solid var(--accent); margin-bottom: 1.5rem; }
+        .header-left h1 { font-size: 1.6rem; font-weight: 800; color: var(--primary); line-height: 1.2; }
+        .header-left h1 span { color: var(--accent); }
+        .header-left .subtitle { font-size: 0.95rem; color: var(--text-light); margin-top: 0.3rem; }
+        .header-right { text-align: right; font-size: 0.85rem; color: var(--text-light); }
+        .header-right strong { color: var(--text); }
+        .section { margin-bottom: 1.5rem; }
+        .section-title { font-size: 1.05rem; font-weight: 700; color: var(--primary); padding-bottom: 0.4rem; border-bottom: 2px solid var(--accent); margin-bottom: 0.8rem; display: inline-block; }
+        .section p { margin-bottom: 0.5rem; }
+        .mission { background: var(--bg-light); border-left: 3px solid var(--accent); padding: 0.7rem 1rem; margin-bottom: 0.6rem; border-radius: 0 6px 6px 0; }
+        .mission h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.2rem; color: var(--primary); }
+        .mission p { font-size: 0.9rem; color: var(--text-light); margin: 0; }
+        .skills-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
+        .skill { padding: 0.2rem 0.7rem; background: rgba(153,74,255,0.08); border: 1px solid rgba(153,74,255,0.2); border-radius: 20px; font-size: 0.8rem; color: var(--accent); font-weight: 500; }
+        .advantage { display: flex; gap: 0.6rem; margin-bottom: 0.5rem; align-items: flex-start; }
+        .advantage-check { flex-shrink: 0; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; margin-top: 0.15rem; }
+        .advantage strong { font-size: 0.95rem; }
+        .advantage p { font-size: 0.85rem; color: var(--text-light); margin: 0; }
+        .alternance-box { background: var(--bg-light); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; margin-top: 0.5rem; }
+        .alternance-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; text-align: center; }
+        .alternance-item strong { display: block; font-size: 1rem; color: var(--accent); }
+        .alternance-item span { font-size: 0.8rem; color: var(--text-light); }
+        .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; margin: 1rem 0; }
+        .stat-item { text-align: center; padding: 0.6rem; background: var(--bg-light); border-radius: 8px; border: 1px solid var(--border); }
+        .stat-item .value { font-size: 1.4rem; font-weight: 800; color: var(--accent); }
+        .stat-item .label { font-size: 0.75rem; color: var(--text-light); }
+        .footer { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); text-align: center; font-size: 0.85rem; color: var(--text-light); }
+        .footer a { color: var(--accent); text-decoration: none; }
+        .pdf-cta{display:inline-flex;align-items:center;gap:.7rem;margin-top:.6rem;padding:.65rem 1.05rem;background:#fff;color:var(--accent);text-decoration:none;font-weight:600;font-size:.82rem;letter-spacing:.3px;border:1.5px solid var(--accent);border-radius:5px;transition:background .25s ease,color .25s ease,transform .25s ease,box-shadow .25s ease}
+        .pdf-cta:hover{background:var(--accent);color:#fff;transform:translateY(-1px);box-shadow:0 6px 16px -6px color-mix(in srgb,var(--accent) 55%,transparent)}
+        .pdf-cta .pdf-ico{display:grid;place-items:center;width:24px;height:24px;border-radius:4px;background:color-mix(in srgb,var(--accent) 12%,transparent);transition:background .25s ease}
+        .pdf-cta:hover .pdf-ico{background:rgba(255,255,255,.2)}
+        .pdf-cta .pdf-ico svg{width:13px;height:13px;stroke:currentColor}
+        .pdf-cta .pdf-txt{display:flex;flex-direction:column;line-height:1.1;text-align:left}
+        .pdf-cta .pdf-txt small{font-size:.6rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;opacity:.7;margin-bottom:2px}
+        .pdf-cta .pdf-arrow{transition:transform .25s ease;stroke:currentColor}
+        .pdf-cta:hover .pdf-arrow{transform:translate(2px,-2px)}
+        @media print{.pdf-cta{display:none!important}}
+
+        /* Custom per-entreprise overrides */
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <h1>Fiche de Mission<br><span>Akeneo × Nacim CHEMIL</span></h1>
+            <div class="subtitle">Product Builder IA & NoCode — Contrat de Professionnalisation</div>
+        </div>
+        <div class="header-right">
+            <strong>Nacim CHEMIL</strong><br>
+            nchemil@gmail.com<br>
+            Clisson / Boussay / Nantes<br>
+            <a href="http://nchemil.vercel.app/5_Fiches-missions-IA/akeneo" target="_blank" rel="noopener">Lien fiche mission</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Intitulé du poste</div>
+        <p><strong>Product Builder IA & NoCode</strong> — Alternance 12 mois (septembre 2026 — septembre 2027)</p>
+        <p>Formation : Alegria.academy — Titre RNCP 37873 « Concepteur Développeur d'Application » (Niveau 6 / BAC+4)</p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Contexte — Akeneo</div>
+        <p>Akeneo est l'éditeur de référence du PIM enterprise : American Eagle, Clarks, Tiffany & Co., Staples, Rexel, Jaguar Land Rover gèrent des millions de SKU sur la plateforme. 400 collaborateurs, siège historique à Nantes, bureaux Paris, Amsterdam, Londres, Düsseldorf, Boston, Sydney. Approche Agentic by design, API-first, PX Insights et orchestration IA native. Culture : Diligent Benevolence, Humble Hunger, Responsible Pioneers, Inclusive Community.</p>
+        <p>17 ans UX/UI sur SI complexes et multi-marchés (Generali 500 boutiques virtuelles, Total Energies +200 écrans, Caisse des Dépôts portail RH, Palo IT CRM). Reconversion Product Builder IA/NoCode via Alegria.academy (RNCP 37873, Niveau 6). Double profil design + NoCode + IA pour accélérer prototypage App Store, outils internes CS/Ops, intégrations partenaires et démos produit — sans toucher au cœur PIM assuré par vos ingénieurs.</p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Missions détaillées</div>
+        <div class="mission"><h4>1. Prototypage UX App Store & extensions</h4><p>Maquettes Figma et POC interactifs pour nouvelles apps de l'écosystème Akeneo : parcours configuration, onboarding partenaires, UI connecteurs. Accélère discovery avant build produit.</p></div>
+        <div class="mission"><h4>2. POC IA & agents produit</h4><p>Prototypes agents IA (RAG + LLM, LM Studio, Claude) pour enrichissement attributs, classification catégories, génération descriptions multilingues. Démos chiffrées pour equipes produit et clients enterprise.</p></div>
+        <div class="mission"><h4>3. Automatisation outils internes CS / Ops</h4><p>Workflows Make et N8N pour Customer Success, onboarding clients, suivi adoption, alertes santé comptes, reporting PX Insights — au service des 400 collaborateurs.</p></div>
+        <div class="mission"><h4>4. Apps métier NoCode (WeWeb + Xano)</h4><p>Portails partenaires, outils internes Sales / Marketing, dashboards équipes, extranets formation — développés et itérés en jours plutôt qu'en sprints.</p></div>
+        <div class="mission"><h4>5. Design system & composants Figma</h4><p>Contribution librairies Figma Akeneo, documentation tokens, cohérence UI entre produit, App Store et supports marketing. Hand-off propre vers équipes front.</p></div>
+        <div class="mission"><h4>6. Landing pages & contenus verticaux</h4><p>Pages Webflow dédiées verticaux (Retail, Fashion, CPG, Automotive, B2B) : pédagogie produit, démos interactives, conversion leads, SEO international.</p></div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Compétences mobilisées</div>
+        <div class="skills-list">
+            <span class="skill">Figma</span><span class="skill">Webflow</span><span class="skill">WeWeb + Xano</span><span class="skill">Airtable</span><span class="skill">Make</span><span class="skill">N8N</span><span class="skill">Supabase</span><span class="skill">IA / LLM / RAG</span><span class="skill">Merise / UML</span><span class="skill">Design System</span><span class="skill">RGAA</span><span class="skill">Flutterflow</span><span class="skill">Agile</span><span class="skill">Git</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Valeur ajoutée du candidat</div>
+        <div class="stats-row">
+            <div class="stat-item"><div class="value">+17</div><div class="label">ans d'expérience</div></div>
+            <div class="stat-item"><div class="value">10 ans</div><div class="label">interfaces SI complexes<br>(Generali)</div></div>
+            <div class="stat-item"><div class="value">-45%</div><div class="label">temps traitement<br>(Caisse des Dépôts)</div></div>
+            <div class="stat-item"><div class="value">+200</div><div class="label">écrans conçus<br>(Total Energies)</div></div>
+        </div>
+        <div class="advantage">
+            <div class="advantage-check">✓</div>
+            <div>
+                <strong>Coût maîtrisé — ~1 347 €/mois net (PME)</strong>
+                <p>Aides cumulées : État + France Travail AFE (2 000 €) + OPCO tutorale (345 €/mois × 6 mois). Formation 100% OPCO. Pas de prime de précarité. ~1 692 €/mois après 6 mois.</p>
+                <a class="pdf-cta" href="../../4_Cout-Alternant/Precisions-aides-alternance-2026.pdf" download target="_blank" rel="noopener">
+                    <span class="pdf-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg></span>
+                    <span class="pdf-txt"><small>PDF · Annexe</small>Détail des aides alternance 2026</span>
+                    <svg class="pdf-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                </a>
+            </div>
+        </div>
+        <div class="advantage"><div class="advantage-check">✓</div><div><strong>Un profil senior, pas un débutant</strong><p>+17 ans d'expérience UX/UI Design dans de grands groupes. Immédiatement opérationnel et autonome.</p></div></div>
+        <div class="advantage"><div class="advantage-check">✓</div><div><strong>Double compétence Design + Technique</strong><p>Rare combinaison UX/UI et NoCode/IA. Un seul profil pour couvrir design, développement et automatisation.</p></div></div>
+        <div class="advantage"><div class="advantage-check">✓</div><div><strong>Résultats mesurables prouvés</strong><p>KPIs concrets : -50% temps de chargement, -45% temps de traitement, +30% contacts.</p></div></div>
+        <div class="advantage"><div class="advantage-check">✓</div><div><strong>Voisin de votre siège nantais</strong><p>Basé à Clisson/Boussay, à 30 min du siège Akeneo à Nantes. Présence hybride fluide (1-2 jours/semaine compatibles avec votre modèle), collaboration directe avec équipes Paris, Amsterdam et internationales via outils async.</p></div></div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Modalités de l'alternance</div>
+        <div class="alternance-box">
+            <div class="alternance-grid">
+                <div class="alternance-item"><strong>4 j/sem</strong><span>En entreprise</span></div>
+                <div class="alternance-item"><strong>1 j/sem</strong><span>En formation</span></div>
+                <div class="alternance-item"><strong>1 sem/trim</strong><span>Session intensive</span></div>
+                <div class="alternance-item"><strong>12 mois</strong><span>Sept 2026 — Sept 2027</span></div>
+            </div>
+        </div>
+        <p style="margin-top: 0.8rem; font-size: 0.9rem;">
+            <strong>Formation :</strong> Product Builder Low Code/No Code & IA — Alegria.academy<br>
+            <strong>Certification :</strong> Titre RNCP 37873 — Concepteur Développeur d'Application (Niveau 6 / BAC+4)
+        </p>
+    </div>
+
+    <div class="footer">
+        <p><strong>Nacim CHEMIL</strong> · nchemil@gmail.com · <a href="http://nchemil.vercel.app/5_Fiches-missions-IA/akeneo" target="_blank" rel="noopener">Lien fiche mission</a> · Clisson / Boussay / Nantes</p>
+        <p style="margin-top: 0.3rem;">Disponible pour un échange téléphonique, visio ou en personne.</p>
+    </div>
+</body>
+</html>
