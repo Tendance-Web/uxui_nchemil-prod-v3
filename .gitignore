@@ -34,3 +34,16 @@ static/1_Programmes/
 static/2_Entreprises/
 static/6_accroche-Mails/
 static/.claude/
+.claude/agents/fiche-deliver.md
+.claude/agents/fiche-design.md
+.claude/agents/fiche-json.md
+.claude/agents/fiche-scrape.md
+.claude/commands/scan-entreprise.md
+static/.firecrawl/lecolededesign-map.json
+static/.firecrawl/lcdd-digital-design.md
+static/5_Fiches-missions-IA/lecolededesign/accroche-lecolededesign.md
+static/.firecrawl/lcdd-home.html
+static/.firecrawl/lcdd-presentation.md
+static/.firecrawl/lcdd-recruter.md
+static/.firecrawl/lecolededesign.md
+static/5_Fiches-missions-IA/5_1_Accroche-Mails/_template-accroche.md
