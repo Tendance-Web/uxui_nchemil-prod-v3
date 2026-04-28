@@ -118,6 +118,103 @@ export const SKILLS_DATA: SkillCategory[] = [
 ];
 
 export const PROJECTS_DATA: Project[] = [
+  // NoCode Project — Cie des Arts Fillaudeau
+  {
+    id: "nocode",
+    title: "Cie des Arts Fillaudeau",
+    client: "Association Culturelle",
+    category: "NoCode & Automatisation IA",
+    description: "Site vitrine d'une association d'arts plastiques, entièrement conçu et déployé grâce à une stack NoCode et IA : n8n, Airtable, MCP Server, Antigravity et déploiement FTP automatisé.",
+    image: "https://github.com/Tendance-Web/visuelsPortfolio/blob/main/images/NoCode/cieArts/cieArts-automatisation/n8n-noeuds.png?raw=true",
+    tags: ["n8n", "Airtable", "MCP Server", "Antigravity", "Python", "FTP", "NoCode"],
+    fullDetails: {
+      context: "La Cie des Arts Fillaudeau est une association d'arts plastiques installée au cœur du Vignoble Nantais. Elle rassemble des artistes peintres, sculpteurs, photographes et poètes. L'objectif était de créer un site vitrine permettant de présenter les artistes et leurs œuvres, sans passer par un cycle de développement traditionnel. Le projet devait être entièrement piloté par des outils NoCode et d'intelligence artificielle.",
+      mission: "Concevoir, construire et déployer un site web complet — de la base de données au rendu HTML en ligne — en s'appuyant exclusivement sur des technologies NoCode et d'automatisation IA. Démontrer qu'un designer peut livrer un produit fonctionnel, en production, sans écrire de code manuellement.",
+      challenges: "Orchestrer une chaîne de publication complète (base de données → génération HTML → déploiement FTP) sans framework front-end classique. Gérer le contenu multi-artistes (biographies, galeries d'œuvres, poèmes en PDF) avec des données hétérogènes. Intégrer des images hébergées sur Airtable en les téléchargeant localement pour la production. Assurer un déploiement automatique et fiable vers un hébergement FTP mutualisé.",
+      role: "Product Builder & NoCode Architect. Architecture de la base de données, configuration des workflows n8n, design des templates HTML, mise en place du pipeline de publication complet et déploiement.",
+      solutionBlocks: [
+        {
+          type: 'text',
+          content: "L'architecture du projet repose sur une approche \"Headless CMS\" où Airtable sert de base de données centrale. Chaque artiste, œuvre et page du site est un enregistrement dans Airtable, enrichi de médias (photos, PDF de poèmes). Le contenu suit un cycle de vie : Brouillon → Prêt → Publié."
+        },
+        {
+          type: 'image',
+          url: "https://github.com/Tendance-Web/visuelsPortfolio/blob/main/images/NoCode/cieArts/cieArts-automatisation/Airtable-bdd-artistes.png?raw=true",
+          caption: "Base de données Airtable — Table Artistes avec biographies, techniques et statuts de publication.",
+          preserveOriginal: true
+        },
+        {
+          type: 'image',
+          url: "https://github.com/Tendance-Web/visuelsPortfolio/blob/main/images/NoCode/cieArts/cieArts-automatisation/Airtable-bdd-oeuvres.png?raw=true",
+          caption: "Table Oeuvres — Gestion des visuels, PDF de poèmes, dimensions et liens vers les artistes.",
+          preserveOriginal: true
+        },
+        {
+          type: 'text',
+          content: "Le moteur de publication est un workflow n8n qui orchestre toute la chaîne : il récupère les données Airtable, injecte le contenu dans des templates HTML (Jinja2), télécharge les images Airtable en local, puis écrit les fichiers générés via un serveur Python local. Le tout se déclenche automatiquement à chaque modification d'un template ou manuellement via un dashboard de publication."
+        },
+        {
+          type: 'image',
+          url: "https://github.com/Tendance-Web/visuelsPortfolio/blob/main/images/NoCode/cieArts/cieArts-automatisation/n8n-worflow.png?raw=true",
+          caption: "Workflow n8n — Pipeline complet : Webhook → Airtable → Génération HTML → Écriture fichiers.",
+          preserveOriginal: true
+        },
+        {
+          type: 'image',
+          url: "https://github.com/Tendance-Web/visuelsPortfolio/blob/main/images/NoCode/cieArts/cieArts-automatisation/n8n-noeuds.png?raw=true",
+          caption: "Détail des nœuds n8n — Chaque étape du workflow est un nœud spécialisé (Airtable, Set, Code, HTTP).",
+          preserveOriginal: true
+        },
+        {
+          type: 'text',
+          content: "Le code des templates et du serveur Python a été entièrement généré par IA (Claude via Antigravity) en utilisant des MCP Servers — notamment le serveur n8n-mcp (20 outils MCP) pour piloter les workflows et le serveur Airtable MCP pour interagir avec la base de données. 8 skills spécialisées (Expression Syntax, Workflow Patterns, Node Configuration, Validation Expert, Code JS/Python…) ont été créées pour guider l'IA dans ses décisions techniques."
+        },
+        {
+          type: 'text',
+          content: "Le serveur local Python (server.py) joue un rôle central : il sert les templates en GET, reçoit les fichiers HTML générés par n8n en POST, surveille les modifications de templates en temps réel (file watcher) et déclenche automatiquement la re-publication. Il intègre également un traitement automatique des images Airtable — téléchargement local et remplacement des URLs temporaires par des chemins relatifs pérennes."
+        },
+        {
+          type: 'text',
+          content: "Le déploiement vers l'hébergement OVH se fait via un script FTP (deploy_ftp.py) qui uploade récursivement le dossier output/ vers le serveur distant. Ce script supporte FTPS (TLS) avec fallback FTP classique, ignore les fichiers parasites macOS (.DS_Store) et fournit un rapport détaillé de chaque fichier envoyé."
+        },
+        {
+          type: 'image',
+          url: "https://github.com/Tendance-Web/visuelsPortfolio/blob/main/images/NoCode/cieArts/cieArts-Screen-Site/capture-cieArtsHome.png?raw=true",
+          caption: "Page d'accueil du site en production — Présentation de l'association et des artistes.",
+          preserveOriginal: true
+        },
+        {
+          type: 'image',
+          url: "https://github.com/Tendance-Web/visuelsPortfolio/blob/main/images/NoCode/cieArts/cieArts-Screen-Site/capture-cieArtsArtistes.png?raw=true",
+          caption: "Page Artistes — Listing dynamique généré depuis les données Airtable.",
+          preserveOriginal: true
+        },
+        {
+          type: 'image',
+          url: "https://github.com/Tendance-Web/visuelsPortfolio/blob/main/images/NoCode/cieArts/cieArts-Screen-Site/capture-cieArts-Gallerie.png?raw=true",
+          caption: "Galerie d'œuvres — Affichage responsive des visuels et des poèmes en PDF.",
+          preserveOriginal: true
+        },
+        {
+          type: 'image',
+          url: "https://github.com/Tendance-Web/visuelsPortfolio/blob/main/images/NoCode/cieArts/cieArts-Screen-Site/capture-cieArts-Fillaudeau.png?raw=true",
+          caption: "Page individuelle d'un artiste — Biographie et galerie personnelle.",
+          preserveOriginal: true
+        },
+        {
+          type: 'text',
+          content: "Ce projet démontre qu'un designer UX/UI, équipé des bons outils NoCode et d'IA, peut livrer un produit complet — de l'architecture de données au site en production — sans écrire une seule ligne de code manuellement. La stack complète : Airtable (CMS), n8n (orchestration), MCP Servers (pilotage IA), Python + Jinja2 (génération), FTP (déploiement), Antigravity (assistant IA)."
+        }
+      ],
+      presentationUrl: "https://cie-des-arts-fillaudeau.com/",
+      kpi: [
+        "Site en production : cie-des-arts-fillaudeau.com",
+        "0 ligne de code écrite manuellement",
+        "4 artistes et leurs œuvres gérés via Airtable",
+        "Pipeline de publication entièrement automatisé (Airtable → n8n → FTP)"
+      ]
+    }
+  },
   // TotalEnergies
   {
     id: "ev-charge",
@@ -497,23 +594,6 @@ export const PROJECTS_DATA: Project[] = [
         "Filtrage intelligent des défis par lieu et saison",
         "Création de défis d'équipe pour favoriser la solidarité"
       ]
-    }
-  },
-  // NoCode Project
-  {
-    id: "nocode",
-    title: "NoCode & IA",
-    isUpcoming: true,
-    client: "Projets Personnels",
-    category: "Construction Produit",
-    description: "Création de flux automatisés et d'interfaces rapides via des outils NoCode et IA.",
-    image: "https://github.com/Tendance-Web/visuelsPortfolio/blob/main/images/NoCode/coverIANoCode.png?raw=true",
-    tags: ["Automatisation IA", "Outils NoCode"],
-    fullDetails: {
-      context: "Exploration des capacités du NoCode pour accélérer le déploiement de prototypes (MVP) et automatiser des processus métiers répétitifs.",
-      mission: "Démontrer l'efficacité des solutions NoCode couplées à l'IA.",
-      challenges: "Intégration complexe de différentes interfaces de programmation (API) sans code, maintenance des flux à grande échelle.",
-      role: "Product Builder. Architecture des données et design des automatisations."
     }
   }
 ];
