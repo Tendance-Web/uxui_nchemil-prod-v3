@@ -274,9 +274,9 @@ export const ProjectDetail: React.FC = () => {
                         className="group relative flex items-center gap-6 p-8 md:p-10 bg-surface border border-border hover:border-border transition-all rounded text-left overflow-hidden"
                       >
                         <div className="relative z-10 space-y-2">
-                          <span className="tech-label text-text-muted text-xs">// ÉTUDE DE CAS</span>
+                          <span className="tech-label text-text-muted text-xs">// {project.fullDetails.presentationUrl?.includes('docs.google') ? 'ÉTUDE DE CAS' : 'EN LIGNE'}</span>
                           <h3 className="text-xl md:text-2xl font-bold text-text-bronze uppercase tracking-tight">
-                            Consulter la présentation complète
+                            {project.fullDetails.presentationUrl?.includes('docs.google') ? 'Consulter la présentation complète' : 'Consulter le site'}
                           </h3>
                         </div>
                         <div className="relative z-10 ml-auto transform group-hover:translate-x-2 transition-transform text-text-muted group-hover:text-text-bronze">
