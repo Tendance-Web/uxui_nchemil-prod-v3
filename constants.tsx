@@ -125,7 +125,7 @@ export const PROJECTS_DATA: Project[] = [
     client: "Association Culturelle",
     category: "NoCode & Automatisation IA",
     description: "Site vitrine d'une association d'arts plastiques, entièrement conçu et déployé grâce à une stack NoCode et IA : n8n, Airtable, MCP Server, Antigravity et déploiement FTP automatisé.",
-    image: "https://github.com/Tendance-Web/visuelsPortfolio/blob/main/images/NoCode/cieArts/cieArts-automatisation/n8n-noeuds.png?raw=true",
+    image: "https://github.com/Tendance-Web/visuelsPortfolio/blob/main/images/NoCode/cieArts/cieArts-Screen-Site/capture-Vignette-Site.png?raw=true",
     tags: ["n8n", "Airtable", "MCP Server", "Antigravity", "Python", "FTP", "NoCode"],
     fullDetails: {
       context: "La Cie des Arts Fillaudeau est une association d'arts plastiques installée au cœur du Vignoble Nantais. Elle rassemble des artistes peintres, sculpteurs, photographes et poètes. L'objectif était de créer un site vitrine permettant de présenter les artistes et leurs œuvres, sans passer par un cycle de développement traditionnel. Le projet devait être entièrement piloté par des outils NoCode et d'intelligence artificielle.",

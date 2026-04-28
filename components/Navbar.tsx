@@ -147,7 +147,7 @@ export const Navbar: React.FC = () => {
             onClick={() => handleNavigation('root')}
             className="text-text-bronze font-bold font-mono text-base tracking-tight uppercase hover:text-primary transition-colors z-50"
           >
-            Nassim Chemil
+            Nacim Chemil
           </button>
 
           <div className="hidden md:flex items-center gap-10">
@@ -213,7 +213,7 @@ export const Navbar: React.FC = () => {
               }}
               className="text-text-bronze font-bold font-mono text-base tracking-tight uppercase"
             >
-              Nassim Chemil
+              Nacim Chemil
             </button>
 
             <button

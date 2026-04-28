@@ -389,7 +389,7 @@ export const ProjectDetail: React.FC = () => {
 
             {/* Légende basse */}
             <div className="absolute bottom-8 text-center text-text-muted font-mono text-xs uppercase tracking-widest px-6 z-[105]">
-              Échap pour fermer • Nassim Chemil Expérience
+              Échap pour fermer • Nacim Chemil Expérience
             </div>
           </div>
         </div>

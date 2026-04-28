@@ -7,7 +7,7 @@ export const Footer: React.FC = () => {
     <footer className="bg-surface border-t border-border py-12">
       <div className="max-w-[1440px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="text-center md:text-left">
-          <h4 className="text-text-bronze font-bold text-lg mb-2">Nassim CHEMIL</h4>
+          <h4 className="text-text-bronze font-bold text-lg mb-2">Nacim CHEMIL</h4>
           <p className="text-text-secondary text-sm">Concepteur Webapp / Consultant digital / Product builder IA - No Code</p>
         </div>
 
